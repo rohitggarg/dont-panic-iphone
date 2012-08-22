@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F96C6DAB15E47AF50009F6C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAA15E47AF50009F6C1 /* UIKit.framework */; };
+		F96C6DAD15E47AF50009F6C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAC15E47AF50009F6C1 /* Foundation.framework */; };
+		F96C6DAF15E47AF50009F6C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAE15E47AF50009F6C1 /* CoreGraphics.framework */; };
+		F96C6DB515E47AF50009F6C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DB315E47AF50009F6C1 /* InfoPlist.strings */; };
+		F96C6DB715E47AF50009F6C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F96C6DB615E47AF50009F6C1 /* main.m */; };
+		F96C6DBB15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F96C6DBA15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m */; };
+		F96C6DBE15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F96C6DBD15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m */; };
+		F96C6DC115E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DBF15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPhone.xib */; };
+		F96C6DC415E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DC215E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPad.xib */; };
+		F96C6DCD15E4869C0009F6C1 /* DontPanic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DCC15E4869C0009F6C1 /* DontPanic-icon.png */; };
+		F96C6DCF15E487280009F6C1 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DCE15E487280009F6C1 /* icon-57.png */; };
+		F96C6DD115E4872E0009F6C1 /* icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DD015E4872E0009F6C1 /* icon-114.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F96C6DA615E47AF50009F6C1 /* dont-panic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dont-panic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F96C6DAA15E47AF50009F6C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F96C6DAC15E47AF50009F6C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F96C6DAE15E47AF50009F6C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F96C6DB215E47AF50009F6C1 /* dont-panic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dont-panic-Info.plist"; sourceTree = "<group>"; };
+		F96C6DB415E47AF50009F6C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F96C6DB615E47AF50009F6C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F96C6DB815E47AF50009F6C1 /* dont-panic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dont-panic-Prefix.pch"; sourceTree = "<group>"; };
+		F96C6DB915E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_dontpanicAppDelegate.h; sourceTree = "<group>"; };
+		F96C6DBA15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_dontpanicAppDelegate.m; sourceTree = "<group>"; };
+		F96C6DBC15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_dontpanicViewController.h; sourceTree = "<group>"; };
+		F96C6DBD15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_dontpanicViewController.m; sourceTree = "<group>"; };
+		F96C6DC015E47AF50009F6C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/com_hitchhikers_dontpanicViewController_iPhone.xib; sourceTree = "<group>"; };
+		F96C6DC315E47AF50009F6C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/com_hitchhikers_dontpanicViewController_iPad.xib; sourceTree = "<group>"; };
+		F96C6DCC15E4869C0009F6C1 /* DontPanic-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DontPanic-icon.png"; sourceTree = "<group>"; };
+		F96C6DCE15E487280009F6C1 /* icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-57.png"; sourceTree = "<group>"; };
+		F96C6DD015E4872E0009F6C1 /* icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-114.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F96C6DA315E47AF50009F6C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96C6DAB15E47AF50009F6C1 /* UIKit.framework in Frameworks */,
+				F96C6DAD15E47AF50009F6C1 /* Foundation.framework in Frameworks */,
+				F96C6DAF15E47AF50009F6C1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F96C6D9B15E47AF50009F6C1 = {
+			isa = PBXGroup;
+			children = (
+				F96C6DD015E4872E0009F6C1 /* icon-114.png */,
+				F96C6DCE15E487280009F6C1 /* icon-57.png */,
+				F96C6DB015E47AF50009F6C1 /* dont-panic */,
+				F96C6DA915E47AF50009F6C1 /* Frameworks */,
+				F96C6DA715E47AF50009F6C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F96C6DA715E47AF50009F6C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F96C6DA615E47AF50009F6C1 /* dont-panic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F96C6DA915E47AF50009F6C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F96C6DAA15E47AF50009F6C1 /* UIKit.framework */,
+				F96C6DAC15E47AF50009F6C1 /* Foundation.framework */,
+				F96C6DAE15E47AF50009F6C1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F96C6DB015E47AF50009F6C1 /* dont-panic */ = {
+			isa = PBXGroup;
+			children = (
+				F96C6DCC15E4869C0009F6C1 /* DontPanic-icon.png */,
+				F96C6DB915E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.h */,
+				F96C6DBA15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m */,
+				F96C6DBC15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.h */,
+				F96C6DBD15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m */,
+				F96C6DBF15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPhone.xib */,
+				F96C6DC215E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPad.xib */,
+				F96C6DB115E47AF50009F6C1 /* Supporting Files */,
+			);
+			path = "dont-panic";
+			sourceTree = "<group>";
+		};
+		F96C6DB115E47AF50009F6C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F96C6DB215E47AF50009F6C1 /* dont-panic-Info.plist */,
+				F96C6DB315E47AF50009F6C1 /* InfoPlist.strings */,
+				F96C6DB615E47AF50009F6C1 /* main.m */,
+				F96C6DB815E47AF50009F6C1 /* dont-panic-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F96C6DA515E47AF50009F6C1 /* dont-panic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F96C6DC715E47AF50009F6C1 /* Build configuration list for PBXNativeTarget "dont-panic" */;
+			buildPhases = (
+				F96C6DA215E47AF50009F6C1 /* Sources */,
+				F96C6DA315E47AF50009F6C1 /* Frameworks */,
+				F96C6DA415E47AF50009F6C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "dont-panic";
+			productName = "dont-panic";
+			productReference = F96C6DA615E47AF50009F6C1 /* dont-panic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F96C6D9D15E47AF50009F6C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = F96C6DA015E47AF50009F6C1 /* Build configuration list for PBXProject "dont-panic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F96C6D9B15E47AF50009F6C1;
+			productRefGroup = F96C6DA715E47AF50009F6C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F96C6DA515E47AF50009F6C1 /* dont-panic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F96C6DA415E47AF50009F6C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96C6DB515E47AF50009F6C1 /* InfoPlist.strings in Resources */,
+				F96C6DC115E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPhone.xib in Resources */,
+				F96C6DC415E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPad.xib in Resources */,
+				F96C6DCD15E4869C0009F6C1 /* DontPanic-icon.png in Resources */,
+				F96C6DCF15E487280009F6C1 /* icon-57.png in Resources */,
+				F96C6DD115E4872E0009F6C1 /* icon-114.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F96C6DA215E47AF50009F6C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96C6DB715E47AF50009F6C1 /* main.m in Sources */,
+				F96C6DBB15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m in Sources */,
+				F96C6DBE15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F96C6DB315E47AF50009F6C1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F96C6DB415E47AF50009F6C1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F96C6DBF15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F96C6DC015E47AF50009F6C1 /* en */,
+			);
+			name = com_hitchhikers_dontpanicViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		F96C6DC215E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F96C6DC315E47AF50009F6C1 /* en */,
+			);
+			name = com_hitchhikers_dontpanicViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F96C6DC515E47AF50009F6C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F96C6DC615E47AF50009F6C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F96C6DC815E47AF50009F6C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dont-panic/dont-panic-Prefix.pch";
+				INFOPLIST_FILE = "dont-panic/dont-panic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F96C6DC915E47AF50009F6C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dont-panic/dont-panic-Prefix.pch";
+				INFOPLIST_FILE = "dont-panic/dont-panic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F96C6DA015E47AF50009F6C1 /* Build configuration list for PBXProject "dont-panic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F96C6DC515E47AF50009F6C1 /* Debug */,
+				F96C6DC615E47AF50009F6C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F96C6DC715E47AF50009F6C1 /* Build configuration list for PBXNativeTarget "dont-panic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F96C6DC815E47AF50009F6C1 /* Debug */,
+				F96C6DC915E47AF50009F6C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F96C6D9D15E47AF50009F6C1 /* Project object */;
+}
