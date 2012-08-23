@@ -16,7 +16,7 @@ NSArray *objects;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    keys = [NSArray arrayWithObjects:@"Office Locations", @"Countries", @"Fellows", @"Admins", @"Hangouts", @"Routes", @"Transportation", nil];
+    keys = [NSArray arrayWithObjects:@"Office Locations", @"Countries", @"TWers", @"Admins", @"Hangouts", @"Routes", @"Transportation", nil];
     objects = [NSArray arrayWithObjects:@"Search", @"Search", @"Search", @"Search", @"Map", @"Map", @"Search", nil];
     return self;
 }
@@ -99,7 +99,7 @@ NSArray *objects;
         cell.textLabel.text = [keys objectAtIndex:indexPath.row];
         cell.textLabel.textColor = [UIColor brownColor];
         cell.textLabel.textAlignment = UITextAlignmentRight;
-        cell.imageView.image = [UIImage imageNamed:@"DontPanic-icon.png"];
+        cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", cell.textLabel.text]];
     }
     return cell;
 

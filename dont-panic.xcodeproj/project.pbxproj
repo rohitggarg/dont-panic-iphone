@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F912C14A15E66DBE004A5F5A /* Countries.png in Resources */ = {isa = PBXBuildFile; fileRef = F912C14915E66DBE004A5F5A /* Countries.png */; };
+		F912C14D15E6719E004A5F5A /* TWers.png in Resources */ = {isa = PBXBuildFile; fileRef = F912C14C15E6719E004A5F5A /* TWers.png */; };
+		F946593515E66AEC00429B81 /* Office Locations.png in Resources */ = {isa = PBXBuildFile; fileRef = F946593415E66AEC00429B81 /* Office Locations.png */; };
 		F96C6DAB15E47AF50009F6C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAA15E47AF50009F6C1 /* UIKit.framework */; };
 		F96C6DAD15E47AF50009F6C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAC15E47AF50009F6C1 /* Foundation.framework */; };
 		F96C6DAF15E47AF50009F6C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAE15E47AF50009F6C1 /* CoreGraphics.framework */; };
@@ -24,9 +27,16 @@
 		F984067915E5CE670058A519 /* SearchView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067815E5CE670058A519 /* SearchView_iPhone.xib */; };
 		F984067D15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */; };
 		F984067F15E5D76D0058A519 /* MapView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067E15E5D76D0058A519 /* MapView_iPhone.xib */; };
+		F988E95E15E6818B00C8D8B7 /* Admins.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E95D15E6818B00C8D8B7 /* Admins.png */; };
+		F988E96115E68C6D00C8D8B7 /* Hangouts.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96015E68C6D00C8D8B7 /* Hangouts.png */; };
+		F988E96415E6971800C8D8B7 /* Routes.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96215E6971800C8D8B7 /* Routes.png */; };
+		F988E96515E6971800C8D8B7 /* Transportation.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96315E6971800C8D8B7 /* Transportation.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F912C14915E66DBE004A5F5A /* Countries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Countries.png; sourceTree = "<group>"; };
+		F912C14C15E6719E004A5F5A /* TWers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TWers.png; sourceTree = "<group>"; };
+		F946593415E66AEC00429B81 /* Office Locations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Office Locations.png"; sourceTree = "<group>"; };
 		F96C6DA615E47AF50009F6C1 /* dont-panic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dont-panic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96C6DAA15E47AF50009F6C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F96C6DAC15E47AF50009F6C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +60,10 @@
 		F984067B15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_SearchResultsController.h; sourceTree = "<group>"; };
 		F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_SearchResultsController.m; sourceTree = "<group>"; };
 		F984067E15E5D76D0058A519 /* MapView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView_iPhone.xib; sourceTree = "<group>"; };
+		F988E95D15E6818B00C8D8B7 /* Admins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Admins.png; sourceTree = "<group>"; };
+		F988E96015E68C6D00C8D8B7 /* Hangouts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hangouts.png; sourceTree = "<group>"; };
+		F988E96215E6971800C8D8B7 /* Routes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Routes.png; sourceTree = "<group>"; };
+		F988E96315E6971800C8D8B7 /* Transportation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transportation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +116,13 @@
 		F96C6DB015E47AF50009F6C1 /* dont-panic */ = {
 			isa = PBXGroup;
 			children = (
+				F988E96215E6971800C8D8B7 /* Routes.png */,
+				F988E96315E6971800C8D8B7 /* Transportation.png */,
+				F988E96015E68C6D00C8D8B7 /* Hangouts.png */,
+				F988E95D15E6818B00C8D8B7 /* Admins.png */,
+				F912C14C15E6719E004A5F5A /* TWers.png */,
+				F912C14915E66DBE004A5F5A /* Countries.png */,
+				F946593415E66AEC00429B81 /* Office Locations.png */,
 				F96C6DCC15E4869C0009F6C1 /* DontPanic-icon.png */,
 				F96C6DB915E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.h */,
 				F96C6DBA15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m */,
@@ -187,6 +208,13 @@
 				F96C6DD115E4872E0009F6C1 /* icon-114.png in Resources */,
 				F984067915E5CE670058A519 /* SearchView_iPhone.xib in Resources */,
 				F984067F15E5D76D0058A519 /* MapView_iPhone.xib in Resources */,
+				F946593515E66AEC00429B81 /* Office Locations.png in Resources */,
+				F912C14A15E66DBE004A5F5A /* Countries.png in Resources */,
+				F912C14D15E6719E004A5F5A /* TWers.png in Resources */,
+				F988E95E15E6818B00C8D8B7 /* Admins.png in Resources */,
+				F988E96115E68C6D00C8D8B7 /* Hangouts.png in Resources */,
+				F988E96415E6971800C8D8B7 /* Routes.png in Resources */,
+				F988E96515E6971800C8D8B7 /* Transportation.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
