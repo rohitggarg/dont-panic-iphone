@@ -18,12 +18,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    com_hitchhikers_dontpanicViewController *view;
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[com_hitchhikers_dontpanicViewController alloc] initWithNibName:@"com_hitchhikers_dontpanicViewController_iPhone" bundle:nil];
+        view = [[com_hitchhikers_dontpanicViewController alloc] initWithNibName:@"com_hitchhikers_dontpanicViewController_iPhone" bundle:nil];
     } else {
-        self.viewController = [[com_hitchhikers_dontpanicViewController alloc] initWithNibName:@"com_hitchhikers_dontpanicViewController_iPad" bundle:nil];
+        view = [[com_hitchhikers_dontpanicViewController alloc] initWithNibName:@"com_hitchhikers_dontpanicViewController_iPad" bundle:nil];
     }
+    self.viewController = [[UINavigationController alloc] initWithRootViewController:view];
+    view.navigationController = self.viewController;
+    view.title = @"Please select...";
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

@@ -7,21 +7,17 @@
 //
 
 #import "com_hitchhikers_dontpanicViewController.h"
+#import "com_hitchhikers_SearchResultsController.h"
 
-NSMutableArray *optionsForApp;
+NSArray *keys;
+NSArray *objects;
 @implementation com_hitchhikers_dontpanicViewController
-
+@synthesize navigationController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    optionsForApp = [NSMutableArray arrayWithCapacity:20];
-    [optionsForApp addObject:@"Office Locations"];
-    [optionsForApp addObject:@"Countries"];
-    [optionsForApp addObject:@"Fellows"];
-    [optionsForApp addObject:@"Admins"];
-    [optionsForApp addObject:@"Hangouts"];
-    [optionsForApp addObject:@"Routes"];
-    [optionsForApp addObject:@"Transportation"];
+    keys = [NSArray arrayWithObjects:@"Office Locations", @"Countries", @"Fellows", @"Admins", @"Hangouts", @"Routes", @"Transportation", nil];
+    objects = [NSArray arrayWithObjects:@"Search", @"Search", @"Search", @"Search", @"Map", @"Map", @"Search", nil];
     return self;
 }
 
@@ -75,12 +71,20 @@ NSMutableArray *optionsForApp;
     }
 }
 
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [optionsForApp count];
+    return [keys count];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    com_hitchhikers_SearchResultsController *searchController = [[com_hitchhikers_SearchResultsController alloc] initWithNibName:[objects objectAtIndex:indexPath.row] bundle:nil];
+    searchController.title = [keys objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:searchController animated:true];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,7 +96,7 @@ NSMutableArray *optionsForApp;
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
-        cell.textLabel.text = [optionsForApp objectAtIndex:indexPath.row];
+        cell.textLabel.text = [keys objectAtIndex:indexPath.row];
         cell.textLabel.textColor = [UIColor brownColor];
         cell.textLabel.textAlignment = UITextAlignmentRight;
         cell.imageView.image = [UIImage imageNamed:@"DontPanic-icon.png"];

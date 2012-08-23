@@ -10,4 +10,6 @@
 
 @interface com_hitchhikers_dontpanicViewController : UITableViewController
 
+@property (strong, nonatomic) UINavigationController *navigationController;
+
 @end

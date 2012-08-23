@@ -19,6 +19,11 @@
 		F96C6DCD15E4869C0009F6C1 /* DontPanic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DCC15E4869C0009F6C1 /* DontPanic-icon.png */; };
 		F96C6DCF15E487280009F6C1 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DCE15E487280009F6C1 /* icon-57.png */; };
 		F96C6DD115E4872E0009F6C1 /* icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DD015E4872E0009F6C1 /* icon-114.png */; };
+		F9746B8B15E6555300CDCCEE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9746B8A15E6555300CDCCEE /* MapKit.framework */; };
+		F9746B8E15E6556600CDCCEE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9746B8D15E6556600CDCCEE /* CoreLocation.framework */; };
+		F984067915E5CE670058A519 /* SearchView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067815E5CE670058A519 /* SearchView_iPhone.xib */; };
+		F984067D15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */; };
+		F984067F15E5D76D0058A519 /* MapView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067E15E5D76D0058A519 /* MapView_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,12 @@
 		F96C6DCC15E4869C0009F6C1 /* DontPanic-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DontPanic-icon.png"; sourceTree = "<group>"; };
 		F96C6DCE15E487280009F6C1 /* icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-57.png"; sourceTree = "<group>"; };
 		F96C6DD015E4872E0009F6C1 /* icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-114.png"; sourceTree = "<group>"; };
+		F9746B8A15E6555300CDCCEE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F9746B8D15E6556600CDCCEE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F984067815E5CE670058A519 /* SearchView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView_iPhone.xib; sourceTree = "<group>"; };
+		F984067B15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_SearchResultsController.h; sourceTree = "<group>"; };
+		F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_SearchResultsController.m; sourceTree = "<group>"; };
+		F984067E15E5D76D0058A519 /* MapView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9746B8E15E6556600CDCCEE /* CoreLocation.framework in Frameworks */,
+				F9746B8B15E6555300CDCCEE /* MapKit.framework in Frameworks */,
 				F96C6DAB15E47AF50009F6C1 /* UIKit.framework in Frameworks */,
 				F96C6DAD15E47AF50009F6C1 /* Foundation.framework in Frameworks */,
 				F96C6DAF15E47AF50009F6C1 /* CoreGraphics.framework in Frameworks */,
@@ -58,6 +71,8 @@
 		F96C6D9B15E47AF50009F6C1 = {
 			isa = PBXGroup;
 			children = (
+				F9746B8D15E6556600CDCCEE /* CoreLocation.framework */,
+				F9746B8A15E6555300CDCCEE /* MapKit.framework */,
 				F96C6DD015E4872E0009F6C1 /* icon-114.png */,
 				F96C6DCE15E487280009F6C1 /* icon-57.png */,
 				F96C6DB015E47AF50009F6C1 /* dont-panic */,
@@ -95,6 +110,10 @@
 				F96C6DBF15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPhone.xib */,
 				F96C6DC215E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPad.xib */,
 				F96C6DB115E47AF50009F6C1 /* Supporting Files */,
+				F984067815E5CE670058A519 /* SearchView_iPhone.xib */,
+				F984067B15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.h */,
+				F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */,
+				F984067E15E5D76D0058A519 /* MapView_iPhone.xib */,
 			);
 			path = "dont-panic";
 			sourceTree = "<group>";
@@ -166,6 +185,8 @@
 				F96C6DCD15E4869C0009F6C1 /* DontPanic-icon.png in Resources */,
 				F96C6DCF15E487280009F6C1 /* icon-57.png in Resources */,
 				F96C6DD115E4872E0009F6C1 /* icon-114.png in Resources */,
+				F984067915E5CE670058A519 /* SearchView_iPhone.xib in Resources */,
+				F984067F15E5D76D0058A519 /* MapView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +200,7 @@
 				F96C6DB715E47AF50009F6C1 /* main.m in Sources */,
 				F96C6DBB15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m in Sources */,
 				F96C6DBE15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m in Sources */,
+				F984067D15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +322,7 @@
 				F96C6DC915E47AF50009F6C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
