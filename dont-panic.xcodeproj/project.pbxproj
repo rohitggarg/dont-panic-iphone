@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F912C14A15E66DBE004A5F5A /* Countries.png in Resources */ = {isa = PBXBuildFile; fileRef = F912C14915E66DBE004A5F5A /* Countries.png */; };
 		F912C14D15E6719E004A5F5A /* TWers.png in Resources */ = {isa = PBXBuildFile; fileRef = F912C14C15E6719E004A5F5A /* TWers.png */; };
+		F936E7B515E72602004D423E /* Panic.png in Resources */ = {isa = PBXBuildFile; fileRef = F936E7B415E72602004D423E /* Panic.png */; };
 		F946593515E66AEC00429B81 /* Office Locations.png in Resources */ = {isa = PBXBuildFile; fileRef = F946593415E66AEC00429B81 /* Office Locations.png */; };
 		F96C6DAB15E47AF50009F6C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAA15E47AF50009F6C1 /* UIKit.framework */; };
 		F96C6DAD15E47AF50009F6C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAC15E47AF50009F6C1 /* Foundation.framework */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		F912C14915E66DBE004A5F5A /* Countries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Countries.png; sourceTree = "<group>"; };
 		F912C14C15E6719E004A5F5A /* TWers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TWers.png; sourceTree = "<group>"; };
+		F936E7B415E72602004D423E /* Panic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Panic.png; sourceTree = "<group>"; };
 		F946593415E66AEC00429B81 /* Office Locations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Office Locations.png"; sourceTree = "<group>"; };
 		F96C6DA615E47AF50009F6C1 /* dont-panic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dont-panic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96C6DAA15E47AF50009F6C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -116,6 +118,7 @@
 		F96C6DB015E47AF50009F6C1 /* dont-panic */ = {
 			isa = PBXGroup;
 			children = (
+				F936E7B415E72602004D423E /* Panic.png */,
 				F988E96215E6971800C8D8B7 /* Routes.png */,
 				F988E96315E6971800C8D8B7 /* Transportation.png */,
 				F988E96015E68C6D00C8D8B7 /* Hangouts.png */,
@@ -215,6 +218,7 @@
 				F988E96115E68C6D00C8D8B7 /* Hangouts.png in Resources */,
 				F988E96415E6971800C8D8B7 /* Routes.png in Resources */,
 				F988E96515E6971800C8D8B7 /* Transportation.png in Resources */,
+				F936E7B515E72602004D423E /* Panic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
