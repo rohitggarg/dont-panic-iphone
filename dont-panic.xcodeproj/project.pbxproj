@@ -44,6 +44,15 @@
 		F988E96115E68C6D00C8D8B7 /* Hangouts.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96015E68C6D00C8D8B7 /* Hangouts.png */; };
 		F988E96415E6971800C8D8B7 /* Routes.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96215E6971800C8D8B7 /* Routes.png */; };
 		F988E96515E6971800C8D8B7 /* Transportation.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96315E6971800C8D8B7 /* Transportation.png */; };
+		F99935C315EFAF6800DFE193 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99935C215EFAF6800DFE193 /* CoreData.framework */; };
+		F99935D215EFC4AA00DFE193 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935C515EFC4A900DFE193 /* Admin.m */; };
+		F99935D315EFC4AA00DFE193 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935C715EFC4A900DFE193 /* City.m */; };
+		F99935D415EFC4AA00DFE193 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935C915EFC4A900DFE193 /* Company.m */; };
+		F99935D515EFC4AA00DFE193 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935CB15EFC4AA00DFE193 /* Country.m */; };
+		F99935D615EFC4AA00DFE193 /* Office.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935CD15EFC4AA00DFE193 /* Office.m */; };
+		F99935D715EFC4AA00DFE193 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935CF15EFC4AA00DFE193 /* Place.m */; };
+		F99935D815EFC4AA00DFE193 /* PlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935D115EFC4AA00DFE193 /* PlaceType.m */; };
+		F99935DB15EFC52200DFE193 /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +112,22 @@
 		F988E96015E68C6D00C8D8B7 /* Hangouts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hangouts.png; sourceTree = "<group>"; };
 		F988E96215E6971800C8D8B7 /* Routes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Routes.png; sourceTree = "<group>"; };
 		F988E96315E6971800C8D8B7 /* Transportation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transportation.png; sourceTree = "<group>"; };
+		F99935C215EFAF6800DFE193 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F99935C415EFC4A900DFE193 /* Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Admin.h; path = data/Admin.h; sourceTree = "<group>"; };
+		F99935C515EFC4A900DFE193 /* Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Admin.m; path = data/Admin.m; sourceTree = "<group>"; };
+		F99935C615EFC4A900DFE193 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = data/City.h; sourceTree = "<group>"; };
+		F99935C715EFC4A900DFE193 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = data/City.m; sourceTree = "<group>"; };
+		F99935C815EFC4A900DFE193 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Company.h; path = data/Company.h; sourceTree = "<group>"; };
+		F99935C915EFC4A900DFE193 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Company.m; path = data/Company.m; sourceTree = "<group>"; };
+		F99935CA15EFC4AA00DFE193 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = data/Country.h; sourceTree = "<group>"; };
+		F99935CB15EFC4AA00DFE193 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = data/Country.m; sourceTree = "<group>"; };
+		F99935CC15EFC4AA00DFE193 /* Office.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Office.h; path = data/Office.h; sourceTree = "<group>"; };
+		F99935CD15EFC4AA00DFE193 /* Office.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Office.m; path = data/Office.m; sourceTree = "<group>"; };
+		F99935CE15EFC4AA00DFE193 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = data/Place.h; sourceTree = "<group>"; };
+		F99935CF15EFC4AA00DFE193 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = data/Place.m; sourceTree = "<group>"; };
+		F99935D015EFC4AA00DFE193 /* PlaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceType.h; path = data/PlaceType.h; sourceTree = "<group>"; };
+		F99935D115EFC4AA00DFE193 /* PlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceType.m; path = data/PlaceType.m; sourceTree = "<group>"; };
+		F99935DA15EFC52200DFE193 /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99935C315EFAF6800DFE193 /* CoreData.framework in Frameworks */,
 				F9746B8E15E6556600CDCCEE /* CoreLocation.framework in Frameworks */,
 				F9746B8B15E6555300CDCCEE /* MapKit.framework in Frameworks */,
 				F96C6DAB15E47AF50009F6C1 /* UIKit.framework in Frameworks */,
@@ -124,6 +150,7 @@
 		F96C6D9B15E47AF50009F6C1 = {
 			isa = PBXGroup;
 			children = (
+				F99935C215EFAF6800DFE193 /* CoreData.framework */,
 				F9746B8D15E6556600CDCCEE /* CoreLocation.framework */,
 				F9746B8A15E6555300CDCCEE /* MapKit.framework */,
 				F96C6DD015E4872E0009F6C1 /* icon-114.png */,
@@ -155,6 +182,21 @@
 		F96C6DB015E47AF50009F6C1 /* dont-panic */ = {
 			isa = PBXGroup;
 			children = (
+				F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */,
+				F99935C415EFC4A900DFE193 /* Admin.h */,
+				F99935C515EFC4A900DFE193 /* Admin.m */,
+				F99935C615EFC4A900DFE193 /* City.h */,
+				F99935C715EFC4A900DFE193 /* City.m */,
+				F99935C815EFC4A900DFE193 /* Company.h */,
+				F99935C915EFC4A900DFE193 /* Company.m */,
+				F99935CA15EFC4AA00DFE193 /* Country.h */,
+				F99935CB15EFC4AA00DFE193 /* Country.m */,
+				F99935CC15EFC4AA00DFE193 /* Office.h */,
+				F99935CD15EFC4AA00DFE193 /* Office.m */,
+				F99935CE15EFC4AA00DFE193 /* Place.h */,
+				F99935CF15EFC4AA00DFE193 /* Place.m */,
+				F99935D015EFC4AA00DFE193 /* PlaceType.h */,
+				F99935D115EFC4AA00DFE193 /* PlaceType.m */,
 				F987591415E7ABC000965BAC /* SBJson.h */,
 				F987591515E7ABC000965BAC /* SBJsonParser.h */,
 				F987591615E7ABC000965BAC /* SBJsonParser.m */,
@@ -307,6 +349,14 @@
 				F987593315E7ABC000965BAC /* SBJsonTokeniser.m in Sources */,
 				F987593415E7ABC000965BAC /* SBJsonUTF8Stream.m in Sources */,
 				F987593515E7ABC000965BAC /* SBJsonWriter.m in Sources */,
+				F99935D215EFC4AA00DFE193 /* Admin.m in Sources */,
+				F99935D315EFC4AA00DFE193 /* City.m in Sources */,
+				F99935D415EFC4AA00DFE193 /* Company.m in Sources */,
+				F99935D515EFC4AA00DFE193 /* Country.m in Sources */,
+				F99935D615EFC4AA00DFE193 /* Office.m in Sources */,
+				F99935D715EFC4AA00DFE193 /* Place.m in Sources */,
+				F99935D815EFC4AA00DFE193 /* PlaceType.m in Sources */,
+				F99935DB15EFC52200DFE193 /* LocalStorage.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +481,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F99935DA15EFC52200DFE193 /* LocalStorage.xcdatamodel */,
+			);
+			currentVersion = F99935DA15EFC52200DFE193 /* LocalStorage.xcdatamodel */;
+			path = LocalStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F96C6D9D15E47AF50009F6C1 /* Project object */;
 }

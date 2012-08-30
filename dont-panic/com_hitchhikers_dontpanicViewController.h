@@ -12,4 +12,5 @@
 
 @property (strong, nonatomic) UINavigationController *navigationController;
 
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @end

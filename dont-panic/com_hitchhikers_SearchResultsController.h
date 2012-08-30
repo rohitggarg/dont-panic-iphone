@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Country.h"
 @interface com_hitchhikers_SearchResultsController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end

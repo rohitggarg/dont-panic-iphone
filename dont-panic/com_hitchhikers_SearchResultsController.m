@@ -10,8 +10,20 @@
 
 @implementation com_hitchhikers_SearchResultsController
 
+@synthesize managedObjectContext;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Country"
+                                              inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (Country *info in fetchedObjects) {
+        NSLog(@"Name: %@", info.name);
+    }
+
     NSString *os = @"iPhone";
     self = [super initWithNibName:[NSString localizedStringWithFormat:@"%@View_%@", nibNameOrNil, os] bundle:nibBundleOrNil];
     if (self) {

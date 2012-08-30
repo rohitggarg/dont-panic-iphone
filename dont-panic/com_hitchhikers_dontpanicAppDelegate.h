@@ -10,10 +10,16 @@
 
 @class com_hitchhikers_dontpanicViewController;
 
-@interface com_hitchhikers_dontpanicAppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface com_hitchhikers_dontpanicAppDelegate : UIResponder <UIApplicationDelegate> 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UINavigationController *viewController;
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end

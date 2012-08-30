@@ -11,11 +11,15 @@
 
 NSArray *keys;
 NSArray *objects;
+NSMutableDictionary *controllers;
+
 @implementation com_hitchhikers_dontpanicViewController
 @synthesize navigationController;
+@synthesize managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    controllers = [[NSMutableDictionary alloc] init];
     keys = [NSArray arrayWithObjects:@"Office Locations", @"Countries", @"TWers", @"Admins", @"Hangouts", @"Routes", @"Transportation", nil];
     objects = [NSArray arrayWithObjects:@"Search", @"Search", @"Search", @"Search", @"Map", @"Map", @"Search", nil];
     return self;
@@ -81,7 +85,14 @@ NSArray *objects;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    com_hitchhikers_SearchResultsController *searchController = [[com_hitchhikers_SearchResultsController alloc] initWithNibName:[objects objectAtIndex:indexPath.row] bundle:nil];
+    NSString *key = [objects objectAtIndex:indexPath.row];
+    com_hitchhikers_SearchResultsController *searchController = [controllers objectForKey:key];
+    if(searchController == nil) {
+        searchController = [com_hitchhikers_SearchResultsController alloc];
+        searchController.managedObjectContext = self.managedObjectContext;
+        searchController = [searchController initWithNibName:key bundle:nil];
+        [controllers setValue:searchController forKey:key];
+    }
     searchController.title = [keys objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:searchController animated:true];
     
