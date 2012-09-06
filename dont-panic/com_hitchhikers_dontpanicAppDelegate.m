@@ -9,7 +9,13 @@
 #import "com_hitchhikers_dontpanicAppDelegate.h"
 
 #import "com_hitchhikers_dontpanicViewController.h"
+#import "Place.h"
+#import "Company.h"
+#import "Office.h"
+#import "PlaceType.h"
 #import "Country.h"
+#import "City.h"
+#import "Admin.h"
 @implementation com_hitchhikers_dontpanicAppDelegate
 
 @synthesize window = _window;
@@ -18,14 +24,41 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
+- (void)dummy:(NSManagedObjectContext *)context {
+    Place *place = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
+    Country *country = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:context];
+    place.name = @"TW Delhi";
+    place.type = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
+    place.type.name = @"Office";
+    place.office = [NSEntityDescription insertNewObjectForEntityForName:@"Office" inManagedObjectContext:context];
+    place.office.company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:context];
+    place.office.company.name = @"ThoughtWorks";
+    City *city = [NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:context];
+    city.name = @"Delhi";
+    city.country = country;
+    place.city = city;
+    Admin *admin = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:context];
+    admin.office = place.office;
+    admin.name = @"Harvinder";
+    admin.contact = @"9818656005";
+    country.name = @"India";
+    Place *transportHub = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
+    transportHub.type = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
+    transportHub.type.name= @"Transport";
+    transportHub.name = @"Bus Stop";
+    transportHub.address1 = @"ISBT";
+    transportHub.address2 = @"Kashmere Gate";
+    transportHub.desc = @"Inter state bus terminal of delhi";
+    transportHub.city = city;
+    NSError *error;
+    if(![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
 - (void)syncSamaan {
     NSManagedObjectContext *context = [self managedObjectContext];
-    //Country *country = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:context];
-    //country.name = @"India";
-    //NSError *error;
-    //if(![context save:&error]) {
-    //    NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    //}
+    //[self dummy:context];
 
 }
 

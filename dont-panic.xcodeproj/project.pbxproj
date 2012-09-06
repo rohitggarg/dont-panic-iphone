@@ -11,6 +11,13 @@
 		F912C14D15E6719E004A5F5A /* TWers.png in Resources */ = {isa = PBXBuildFile; fileRef = F912C14C15E6719E004A5F5A /* TWers.png */; };
 		F936E7B515E72602004D423E /* Panic.png in Resources */ = {isa = PBXBuildFile; fileRef = F936E7B415E72602004D423E /* Panic.png */; };
 		F946593515E66AEC00429B81 /* Office Locations.png in Resources */ = {isa = PBXBuildFile; fileRef = F946593415E66AEC00429B81 /* Office Locations.png */; };
+		F96630EB15F06A5F00332799 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = F96630EA15F06A5F00332799 /* Country.m */; };
+		F96630EE15F06A6000332799 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = F96630ED15F06A6000332799 /* Place.m */; };
+		F96630F115F06A6000332799 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = F96630F015F06A6000332799 /* Company.m */; };
+		F96630F415F06A6100332799 /* Office.m in Sources */ = {isa = PBXBuildFile; fileRef = F96630F315F06A6100332799 /* Office.m */; };
+		F96630F715F06A6100332799 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = F96630F615F06A6100332799 /* City.m */; };
+		F96630FA15F06A6100332799 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = F96630F915F06A6100332799 /* Admin.m */; };
+		F96630FD15F06A6100332799 /* PlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = F96630FC15F06A6100332799 /* PlaceType.m */; };
 		F96C6DAB15E47AF50009F6C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAA15E47AF50009F6C1 /* UIKit.framework */; };
 		F96C6DAD15E47AF50009F6C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAC15E47AF50009F6C1 /* Foundation.framework */; };
 		F96C6DAF15E47AF50009F6C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96C6DAE15E47AF50009F6C1 /* CoreGraphics.framework */; };
@@ -45,13 +52,6 @@
 		F988E96415E6971800C8D8B7 /* Routes.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96215E6971800C8D8B7 /* Routes.png */; };
 		F988E96515E6971800C8D8B7 /* Transportation.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96315E6971800C8D8B7 /* Transportation.png */; };
 		F99935C315EFAF6800DFE193 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99935C215EFAF6800DFE193 /* CoreData.framework */; };
-		F99935D215EFC4AA00DFE193 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935C515EFC4A900DFE193 /* Admin.m */; };
-		F99935D315EFC4AA00DFE193 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935C715EFC4A900DFE193 /* City.m */; };
-		F99935D415EFC4AA00DFE193 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935C915EFC4A900DFE193 /* Company.m */; };
-		F99935D515EFC4AA00DFE193 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935CB15EFC4AA00DFE193 /* Country.m */; };
-		F99935D615EFC4AA00DFE193 /* Office.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935CD15EFC4AA00DFE193 /* Office.m */; };
-		F99935D715EFC4AA00DFE193 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935CF15EFC4AA00DFE193 /* Place.m */; };
-		F99935D815EFC4AA00DFE193 /* PlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = F99935D115EFC4AA00DFE193 /* PlaceType.m */; };
 		F99935DB15EFC52200DFE193 /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +60,20 @@
 		F912C14C15E6719E004A5F5A /* TWers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TWers.png; sourceTree = "<group>"; };
 		F936E7B415E72602004D423E /* Panic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Panic.png; sourceTree = "<group>"; };
 		F946593415E66AEC00429B81 /* Office Locations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Office Locations.png"; sourceTree = "<group>"; };
+		F96630E915F06A5F00332799 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = data/Country.h; sourceTree = "<group>"; };
+		F96630EA15F06A5F00332799 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = data/Country.m; sourceTree = "<group>"; };
+		F96630EC15F06A6000332799 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = data/Place.h; sourceTree = "<group>"; };
+		F96630ED15F06A6000332799 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = data/Place.m; sourceTree = "<group>"; };
+		F96630EF15F06A6000332799 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Company.h; path = data/Company.h; sourceTree = "<group>"; };
+		F96630F015F06A6000332799 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Company.m; path = data/Company.m; sourceTree = "<group>"; };
+		F96630F215F06A6100332799 /* Office.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Office.h; path = data/Office.h; sourceTree = "<group>"; };
+		F96630F315F06A6100332799 /* Office.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Office.m; path = data/Office.m; sourceTree = "<group>"; };
+		F96630F515F06A6100332799 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = data/City.h; sourceTree = "<group>"; };
+		F96630F615F06A6100332799 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = data/City.m; sourceTree = "<group>"; };
+		F96630F815F06A6100332799 /* Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Admin.h; path = data/Admin.h; sourceTree = "<group>"; };
+		F96630F915F06A6100332799 /* Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Admin.m; path = data/Admin.m; sourceTree = "<group>"; };
+		F96630FB15F06A6100332799 /* PlaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceType.h; path = data/PlaceType.h; sourceTree = "<group>"; };
+		F96630FC15F06A6100332799 /* PlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceType.m; path = data/PlaceType.m; sourceTree = "<group>"; };
 		F96C6DA615E47AF50009F6C1 /* dont-panic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dont-panic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96C6DAA15E47AF50009F6C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F96C6DAC15E47AF50009F6C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,20 +127,6 @@
 		F988E96215E6971800C8D8B7 /* Routes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Routes.png; sourceTree = "<group>"; };
 		F988E96315E6971800C8D8B7 /* Transportation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transportation.png; sourceTree = "<group>"; };
 		F99935C215EFAF6800DFE193 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		F99935C415EFC4A900DFE193 /* Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Admin.h; path = data/Admin.h; sourceTree = "<group>"; };
-		F99935C515EFC4A900DFE193 /* Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Admin.m; path = data/Admin.m; sourceTree = "<group>"; };
-		F99935C615EFC4A900DFE193 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = data/City.h; sourceTree = "<group>"; };
-		F99935C715EFC4A900DFE193 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = data/City.m; sourceTree = "<group>"; };
-		F99935C815EFC4A900DFE193 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Company.h; path = data/Company.h; sourceTree = "<group>"; };
-		F99935C915EFC4A900DFE193 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Company.m; path = data/Company.m; sourceTree = "<group>"; };
-		F99935CA15EFC4AA00DFE193 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = data/Country.h; sourceTree = "<group>"; };
-		F99935CB15EFC4AA00DFE193 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = data/Country.m; sourceTree = "<group>"; };
-		F99935CC15EFC4AA00DFE193 /* Office.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Office.h; path = data/Office.h; sourceTree = "<group>"; };
-		F99935CD15EFC4AA00DFE193 /* Office.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Office.m; path = data/Office.m; sourceTree = "<group>"; };
-		F99935CE15EFC4AA00DFE193 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = data/Place.h; sourceTree = "<group>"; };
-		F99935CF15EFC4AA00DFE193 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = data/Place.m; sourceTree = "<group>"; };
-		F99935D015EFC4AA00DFE193 /* PlaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceType.h; path = data/PlaceType.h; sourceTree = "<group>"; };
-		F99935D115EFC4AA00DFE193 /* PlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceType.m; path = data/PlaceType.m; sourceTree = "<group>"; };
 		F99935DA15EFC52200DFE193 /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,20 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */,
-				F99935C415EFC4A900DFE193 /* Admin.h */,
-				F99935C515EFC4A900DFE193 /* Admin.m */,
-				F99935C615EFC4A900DFE193 /* City.h */,
-				F99935C715EFC4A900DFE193 /* City.m */,
-				F99935C815EFC4A900DFE193 /* Company.h */,
-				F99935C915EFC4A900DFE193 /* Company.m */,
-				F99935CA15EFC4AA00DFE193 /* Country.h */,
-				F99935CB15EFC4AA00DFE193 /* Country.m */,
-				F99935CC15EFC4AA00DFE193 /* Office.h */,
-				F99935CD15EFC4AA00DFE193 /* Office.m */,
-				F99935CE15EFC4AA00DFE193 /* Place.h */,
-				F99935CF15EFC4AA00DFE193 /* Place.m */,
-				F99935D015EFC4AA00DFE193 /* PlaceType.h */,
-				F99935D115EFC4AA00DFE193 /* PlaceType.m */,
 				F987591415E7ABC000965BAC /* SBJson.h */,
 				F987591515E7ABC000965BAC /* SBJsonParser.h */,
 				F987591615E7ABC000965BAC /* SBJsonParser.m */,
@@ -235,6 +221,20 @@
 				F96C6DBA15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m */,
 				F96C6DBC15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.h */,
 				F96C6DBD15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m */,
+				F96630E915F06A5F00332799 /* Country.h */,
+				F96630EA15F06A5F00332799 /* Country.m */,
+				F96630EC15F06A6000332799 /* Place.h */,
+				F96630ED15F06A6000332799 /* Place.m */,
+				F96630EF15F06A6000332799 /* Company.h */,
+				F96630F015F06A6000332799 /* Company.m */,
+				F96630F215F06A6100332799 /* Office.h */,
+				F96630F315F06A6100332799 /* Office.m */,
+				F96630F515F06A6100332799 /* City.h */,
+				F96630F615F06A6100332799 /* City.m */,
+				F96630F815F06A6100332799 /* Admin.h */,
+				F96630F915F06A6100332799 /* Admin.m */,
+				F96630FB15F06A6100332799 /* PlaceType.h */,
+				F96630FC15F06A6100332799 /* PlaceType.m */,
 				F96C6DBF15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPhone.xib */,
 				F96C6DC215E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController_iPad.xib */,
 				F96C6DB115E47AF50009F6C1 /* Supporting Files */,
@@ -349,14 +349,14 @@
 				F987593315E7ABC000965BAC /* SBJsonTokeniser.m in Sources */,
 				F987593415E7ABC000965BAC /* SBJsonUTF8Stream.m in Sources */,
 				F987593515E7ABC000965BAC /* SBJsonWriter.m in Sources */,
-				F99935D215EFC4AA00DFE193 /* Admin.m in Sources */,
-				F99935D315EFC4AA00DFE193 /* City.m in Sources */,
-				F99935D415EFC4AA00DFE193 /* Company.m in Sources */,
-				F99935D515EFC4AA00DFE193 /* Country.m in Sources */,
-				F99935D615EFC4AA00DFE193 /* Office.m in Sources */,
-				F99935D715EFC4AA00DFE193 /* Place.m in Sources */,
-				F99935D815EFC4AA00DFE193 /* PlaceType.m in Sources */,
 				F99935DB15EFC52200DFE193 /* LocalStorage.xcdatamodeld in Sources */,
+				F96630EB15F06A5F00332799 /* Country.m in Sources */,
+				F96630EE15F06A6000332799 /* Place.m in Sources */,
+				F96630F115F06A6000332799 /* Company.m in Sources */,
+				F96630F415F06A6100332799 /* Office.m in Sources */,
+				F96630F715F06A6100332799 /* City.m in Sources */,
+				F96630FA15F06A6100332799 /* Admin.m in Sources */,
+				F96630FD15F06A6100332799 /* PlaceType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

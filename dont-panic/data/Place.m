@@ -2,7 +2,7 @@
 //  Place.m
 //  dont-panic
 //
-//  Created by Rohit on 30/08/12.
+//  Created by Rohit on 31/08/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,15 +14,15 @@
 
 @implementation Place
 
-@dynamic name;
-@dynamic desc;
 @dynamic address1;
 @dynamic address2;
-@dynamic longitude;
-@dynamic latitude;
 @dynamic contactNo;
-@dynamic type;
+@dynamic desc;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic name;
 @dynamic city;
 @dynamic office;
+@dynamic type;
 
 @end
