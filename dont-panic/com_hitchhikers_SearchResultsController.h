@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "Country.h"
 #import "Office.h"
 #import "Place.h"
@@ -15,8 +17,8 @@
 #import "City.h"
 #import "Company.h"
 
-@interface com_hitchhikers_SearchResultsController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface com_hitchhikers_SearchResultsController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MKMapViewDelegate>
 @property (nonatomic, strong) IBOutlet UITableView *table;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-
+@property (nonatomic, strong) IBOutlet MKMapView *map;
 @end
