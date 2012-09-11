@@ -20,7 +20,9 @@
 @interface com_hitchhikers_SearchResultsController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MKMapViewDelegate> {
 }
 @property (nonatomic, strong) IBOutlet UITableView *table;
-@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) IBOutlet MKMapView *map;
-@property (atomic, strong) NSString * viewType;
+@property (nonatomic, strong) NSString * viewType;
+@property (nonatomic, strong) Country *country;
+@property (nonatomic, strong) Place *baseLocation;
 @end

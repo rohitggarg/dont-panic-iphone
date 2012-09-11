@@ -10,10 +10,12 @@
 NSMutableArray *results;
 @implementation com_hitchhikers_SearchResultsController
 
+@synthesize country;
 @synthesize viewType;
 @synthesize table;
 @synthesize map;
 @synthesize managedObjectContext;
+@synthesize baseLocation;
 
 -(void)getResultsForQuery:(NSString *)query {
     NSError *error;
@@ -33,6 +35,10 @@ NSMutableArray *results;
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Office"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        if(self.country != nil) {
+            NSPredicate *filter = [NSPredicate predicateWithFormat:@"place.city.country == %@",country];
+            [fetchRequest setPredicate:filter];
+        }
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         for (Office *info in fetchedObjects) {
             [results addObject:[info place]];
@@ -83,7 +89,7 @@ NSMutableArray *results;
     if(query != nil) {
         NSPredicate *filter = [NSPredicate predicateWithFormat:@"SELF.name contains[cd] %@",query];
         [results filterUsingPredicate:filter];
-    }
+    } 
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -156,9 +162,13 @@ NSMutableArray *results;
     }
 }
 
--(void) initializeSubController:(com_hitchhikers_SearchResultsController *)controller {
+-(void) initializeSubController:(com_hitchhikers_SearchResultsController *)controller obj:(NSObject*)obj {
     if([self.title isEqualToString:@"Countries"]) {
         controller.title=@"Office Locations";
+        controller.country = obj;
+    }
+    if([controller.viewType isEqualToString:@"Map"]) {
+        controller.baseLocation = obj;
     }
 }
 
@@ -171,7 +181,7 @@ NSMutableArray *results;
     } else {
         searchController = [searchController initWithNibName:@"Search" bundle:nil];
     }
-    [self initializeSubController:searchController];
+    [self initializeSubController:searchController obj:object];
     [self.navigationController pushViewController:searchController animated:true];
 }
 
@@ -191,6 +201,17 @@ NSMutableArray *results;
 - (void)mapViewWillStartLoadingMap:(MKMapView *)mapView
 {
     [mapView removeAnnotations:[mapView annotations]];
+    if(self.baseLocation != nil) {
+        CLLocationDegrees latitude = [[baseLocation latitude] doubleValue];
+        CLLocationDegrees longitude = [[baseLocation longitude] doubleValue];
+        CLLocationCoordinate2D point = CLLocationCoordinate2DMake(latitude, longitude);
+        MKPointAnnotation *annotation = [MKPointAnnotation alloc];
+        [annotation setCoordinate:point];
+        [annotation setTitle:[baseLocation name]];
+        [annotation setSubtitle:[baseLocation desc]];
+        [mapView addAnnotation:annotation];
+    }
+
     for(Place *result in results) {
         CLLocationDegrees latitude = [[result latitude] doubleValue];
         CLLocationDegrees longitude = [[result longitude] doubleValue];
