@@ -7,10 +7,10 @@
 //
 
 #import "com_hitchhikers_SearchResultsController.h"
-NSString *viewType;
 NSMutableArray *results;
 @implementation com_hitchhikers_SearchResultsController
 
+@synthesize viewType;
 @synthesize table;
 @synthesize map;
 @synthesize managedObjectContext;
@@ -90,7 +90,7 @@ NSMutableArray *results;
 {
     NSString *os = @"iPhone";
     self = [super initWithNibName:[NSString localizedStringWithFormat:@"%@View_%@", nibNameOrNil, os] bundle:nibBundleOrNil];
-    viewType = nibNameOrNil;
+    self.viewType = nibNameOrNil;
     return self;
 }
 
@@ -98,7 +98,7 @@ NSMutableArray *results;
 {
     [self getResultsForQuery:nil];
     [super viewWillAppear:animated];
-    if([viewType isEqual:@"Map"]) {
+    if([self.viewType isEqual:@"Map"]) {
         map.showsUserLocation=TRUE;
         map.mapType=MKMapTypeHybrid;
         MKCoordinateRegion region;
@@ -149,11 +149,30 @@ NSMutableArray *results;
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self getResultsForQuery:[searchBar text]];
-    if([viewType isEqual:@"Map"]) {
+    if([self.viewType isEqual:@"Map"]) {
         [self mapViewWillStartLoadingMap:self.map];
     } else {
         [self.table reloadData];
     }
+}
+
+-(void) initializeSubController:(com_hitchhikers_SearchResultsController *)controller {
+    if([self.title isEqualToString:@"Countries"]) {
+        controller.title=@"Office Locations";
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSObject *object = [results objectAtIndex:indexPath.row];
+    com_hitchhikers_SearchResultsController *searchController = [com_hitchhikers_SearchResultsController alloc];
+    searchController.managedObjectContext = self.managedObjectContext;
+    if([object isKindOfClass:[Place class]]) {
+        searchController = [searchController initWithNibName:@"Map" bundle:nil];
+    } else {
+        searchController = [searchController initWithNibName:@"Search" bundle:nil];
+    }
+    [self initializeSubController:searchController];
+    [self.navigationController pushViewController:searchController animated:true];
 }
 
 - (void)viewDidUnload

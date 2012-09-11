@@ -17,8 +17,10 @@
 #import "City.h"
 #import "Company.h"
 
-@interface com_hitchhikers_SearchResultsController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MKMapViewDelegate>
+@interface com_hitchhikers_SearchResultsController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MKMapViewDelegate> {
+}
 @property (nonatomic, strong) IBOutlet UITableView *table;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) IBOutlet MKMapView *map;
+@property (atomic, strong) NSString * viewType;
 @end

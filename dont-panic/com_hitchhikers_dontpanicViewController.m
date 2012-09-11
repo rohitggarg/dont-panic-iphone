@@ -14,6 +14,7 @@ NSArray *objects;
 NSMutableDictionary *controllers;
 
 @implementation com_hitchhikers_dontpanicViewController
+
 @synthesize navigationController;
 @synthesize managedObjectContext;
 
