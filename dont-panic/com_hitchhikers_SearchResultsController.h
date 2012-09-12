@@ -22,7 +22,11 @@
 @property (nonatomic, strong) IBOutlet UITableView *table;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) IBOutlet MKMapView *map;
+@property (nonatomic, strong) IBOutlet UITextView *text;
 @property (nonatomic, strong) NSString * viewType;
 @property (nonatomic, strong) Country *country;
 @property (nonatomic, strong) Place *baseLocation;
+@property (nonatomic, strong) Admin *admin;
+
+-(void)initMap:(MKMapView *) map;
 @end

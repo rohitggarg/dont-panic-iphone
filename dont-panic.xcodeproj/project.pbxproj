@@ -32,6 +32,7 @@
 		F96C6DD115E4872E0009F6C1 /* icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = F96C6DD015E4872E0009F6C1 /* icon-114.png */; };
 		F9746B8B15E6555300CDCCEE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9746B8A15E6555300CDCCEE /* MapKit.framework */; };
 		F9746B8E15E6556600CDCCEE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9746B8D15E6556600CDCCEE /* CoreLocation.framework */; };
+		F982F29716002971007C603C /* DetailView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F982F29616002971007C603C /* DetailView_iPhone.xib */; };
 		F984067915E5CE670058A519 /* SearchView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067815E5CE670058A519 /* SearchView_iPhone.xib */; };
 		F984067D15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */; };
 		F984067F15E5D76D0058A519 /* MapView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067E15E5D76D0058A519 /* MapView_iPhone.xib */; };
@@ -93,6 +94,7 @@
 		F96C6DD015E4872E0009F6C1 /* icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-114.png"; sourceTree = "<group>"; };
 		F9746B8A15E6555300CDCCEE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F9746B8D15E6556600CDCCEE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F982F29616002971007C603C /* DetailView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView_iPhone.xib; sourceTree = "<group>"; };
 		F984067815E5CE670058A519 /* SearchView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView_iPhone.xib; sourceTree = "<group>"; };
 		F984067B15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_SearchResultsController.h; sourceTree = "<group>"; };
 		F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_SearchResultsController.m; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				F984067B15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.h */,
 				F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */,
 				F984067E15E5D76D0058A519 /* MapView_iPhone.xib */,
+				F982F29616002971007C603C /* DetailView_iPhone.xib */,
 			);
 			path = "dont-panic";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				F988E96415E6971800C8D8B7 /* Routes.png in Resources */,
 				F988E96515E6971800C8D8B7 /* Transportation.png in Resources */,
 				F936E7B515E72602004D423E /* Panic.png in Resources */,
+				F982F29716002971007C603C /* DetailView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

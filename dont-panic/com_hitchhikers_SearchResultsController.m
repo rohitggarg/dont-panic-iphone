@@ -16,6 +16,8 @@ NSMutableArray *results;
 @synthesize map;
 @synthesize managedObjectContext;
 @synthesize baseLocation;
+@synthesize admin;
+@synthesize text;
 
 -(void)getResultsForQuery:(NSString *)query {
     NSError *error;
@@ -105,20 +107,9 @@ NSMutableArray *results;
     [self getResultsForQuery:nil];
     [super viewWillAppear:animated];
     if([self.viewType isEqual:@"Map"]) {
-        map.showsUserLocation=TRUE;
-        map.mapType=MKMapTypeHybrid;
-        MKCoordinateRegion region;
-        MKCoordinateSpan span;
-        span.latitudeDelta=5;
-        span.longitudeDelta=5;
-        
-        CLLocationCoordinate2D location=self.map.userLocation.coordinate;
-        
-        region.span=span;
-        region.center=location;
-        [map setRegion:region animated:TRUE];
-        [map regionThatFits:region];
-        [self mapViewWillStartLoadingMap:self.map];
+        [self initMap:self.map];
+    } else if([self.viewType isEqual:@"Detail"]) {
+        text.text = [NSString stringWithFormat:@" Name : %@\n Office : %@\n %@",admin.name, admin.office.place.name, admin.contact];
     } else {
         [self.table reloadData];
     }
@@ -156,7 +147,7 @@ NSMutableArray *results;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self getResultsForQuery:[searchBar text]];
     if([self.viewType isEqual:@"Map"]) {
-        [self mapViewWillStartLoadingMap:self.map];
+        [self initMap:self.map];
     } else {
         [self.table reloadData];
     }
@@ -170,6 +161,9 @@ NSMutableArray *results;
     if([controller.viewType isEqualToString:@"Map"]) {
         controller.baseLocation = obj;
     }
+    if([controller.viewType isEqualToString:@"Detail"]) {
+        controller.admin = obj;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,6 +172,8 @@ NSMutableArray *results;
     searchController.managedObjectContext = self.managedObjectContext;
     if([object isKindOfClass:[Place class]]) {
         searchController = [searchController initWithNibName:@"Map" bundle:nil];
+    } else if([object isKindOfClass:[Admin class]]) {
+        searchController = [searchController initWithNibName:@"Detail" bundle:nil];
     } else {
         searchController = [searchController initWithNibName:@"Search" bundle:nil];
     }
@@ -198,8 +194,32 @@ NSMutableArray *results;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)mapViewWillStartLoadingMap:(MKMapView *)mapView
+-(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    CLLocationCoordinate2D location=userLocation.coordinate;
+    
+    if(self.baseLocation != nil) {
+        CLLocationDegrees latitude = [[baseLocation latitude] doubleValue];
+        CLLocationDegrees longitude = [[baseLocation longitude] doubleValue];
+        CLLocationCoordinate2D point = CLLocationCoordinate2DMake(latitude, longitude);
+        location = point;
+    }
+    mapView.showsUserLocation=TRUE;
+    mapView.mapType=MKMapTypeHybrid;
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta=5;
+    span.longitudeDelta=5;
+    region.span=span;
+    region.center=location;
+    [mapView setRegion:region animated:TRUE];
+    [mapView regionThatFits:region];
+}
+
+
+- (void)initMap:(MKMapView *)mapView
+{
+    
     [mapView removeAnnotations:[mapView annotations]];
     if(self.baseLocation != nil) {
         CLLocationDegrees latitude = [[baseLocation latitude] doubleValue];
@@ -208,8 +228,18 @@ NSMutableArray *results;
         MKPointAnnotation *annotation = [MKPointAnnotation alloc];
         [annotation setCoordinate:point];
         [annotation setTitle:[baseLocation name]];
-        [annotation setSubtitle:[baseLocation desc]];
+        [annotation setSubtitle:[NSString stringWithFormat:@"%@ Address : %@, %@ Contact : %@",[baseLocation desc], [baseLocation address1], [baseLocation address2], [baseLocation contactNo]]];
         [mapView addAnnotation:annotation];
+        mapView.showsUserLocation=TRUE;
+        mapView.mapType=MKMapTypeHybrid;
+        MKCoordinateRegion region;
+        MKCoordinateSpan span;
+        span.latitudeDelta=0.2;
+        span.longitudeDelta=0.2;
+        region.span=span;
+        region.center=point;
+        [mapView setRegion:region animated:TRUE];
+        [mapView regionThatFits:region];
     }
 
     for(Place *result in results) {
@@ -222,6 +252,8 @@ NSMutableArray *results;
         [annotation setSubtitle:[result desc]];
         [mapView addAnnotation:annotation];
     }
+    
+
 }
 
 @end
