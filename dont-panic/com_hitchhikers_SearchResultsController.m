@@ -7,6 +7,7 @@
 //
 
 #import "com_hitchhikers_SearchResultsController.h"
+#import <AddressBook/AddressBook.h>
 NSMutableArray *results;
 @implementation com_hitchhikers_SearchResultsController
 
@@ -76,7 +77,7 @@ NSMutableArray *results;
             }
         }
     }
-    if([[self title] isEqual:@"Hangouts"]) {
+    if([[self title] isEqual:@"Hangouts"] || [self title] == nil) {
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"PlaceType"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
@@ -86,6 +87,19 @@ NSMutableArray *results;
             for (Place *place in info.places) {
                 [results addObject:place];
             }
+        }
+    }
+    if([[self title] isEqual:@"Routes"]) {
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Place"
+                                                  inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+
+        NSPredicate *filter = [NSPredicate predicateWithFormat:@"office != NULL"];
+        [fetchRequest setPredicate:filter];
+
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        for (Place *info in fetchedObjects) {
+            [results addObject:info];
         }
     }
     if(query != nil) {
@@ -223,12 +237,15 @@ NSMutableArray *results;
     [mapView removeAnnotations:[mapView annotations]];
     if(self.baseLocation != nil) {
         CLLocationDegrees latitude = [[baseLocation latitude] doubleValue];
+        NSMutableDictionary *completeAddress = [[NSMutableDictionary alloc] initWithCapacity:5];
+        [completeAddress setValue:[NSString stringWithFormat:@"%@,",baseLocation.name] forKey:kABPersonAddressStreetKey];
+        [completeAddress setValue:baseLocation.address1 forKey:@"address1"];
+        [completeAddress setValue:baseLocation.address2 forKey:@"address2"];
+        [completeAddress setValue:baseLocation.city.name forKey:@"city"];
+        [completeAddress setValue:baseLocation.city.country.name forKey:kABPersonAddressCountryKey];
         CLLocationDegrees longitude = [[baseLocation longitude] doubleValue];
         CLLocationCoordinate2D point = CLLocationCoordinate2DMake(latitude, longitude);
-        MKPointAnnotation *annotation = [MKPointAnnotation alloc];
-        [annotation setCoordinate:point];
-        [annotation setTitle:[baseLocation name]];
-        [annotation setSubtitle:[NSString stringWithFormat:@"%@ Address : %@, %@ Contact : %@",[baseLocation desc], [baseLocation address1], [baseLocation address2], [baseLocation contactNo]]];
+        MKPlacemark *annotation = [[MKPlacemark alloc] initWithCoordinate:point addressDictionary:completeAddress];
         [mapView addAnnotation:annotation];
         mapView.showsUserLocation=TRUE;
         mapView.mapType=MKMapTypeHybrid;
@@ -254,6 +271,30 @@ NSMutableArray *results;
     }
     
 
+}
+- (MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id )annotation
+{
+    MKPinAnnotationView *pinView = nil;
+    static NSString *defaultPinID = @"ReusedPin";
+    pinView = (MKPinAnnotationView*)[mV dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+    if ( pinView == nil )
+        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
+    if ([annotation class] == MKPlacemark.class)
+    {
+        MKPlacemark *placeMark = (MKPlacemark *)annotation;
+        pinView.pinColor = MKPinAnnotationColorPurple;
+        pinView.canShowCallout = YES;
+        pinView.animatesDrop = YES;
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0,0,150,40)];
+        textView.textColor = [UIColor whiteColor];
+        textView.backgroundColor = [UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0];
+        [textView setText:[NSString stringWithFormat:@"%@\n%@,%@",[placeMark.addressDictionary objectForKey:@"address1"],[placeMark.addressDictionary objectForKey:@"address2"],[placeMark.addressDictionary objectForKey:@"city"]]];
+        pinView.rightCalloutAccessoryView = textView;
+        return pinView;
+    }
+    else {
+        return [mV viewForAnnotation:annotation];
+    }
 }
 
 @end
