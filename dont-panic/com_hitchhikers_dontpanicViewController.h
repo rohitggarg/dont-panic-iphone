@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface com_hitchhikers_dontpanicViewController : UITableViewController
+@interface com_hitchhikers_dontpanicViewController : UITableViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UINavigationController *navigationController;
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+
+@property (nonatomic,strong) CLLocation *currentLocation;
+@property (nonatomic,strong) CLLocationManager *map;
+
+-(IBAction) panicButtonPushed:(id)sender;
+-(IBAction) syncButtonPushed:(id)sender;
 @end

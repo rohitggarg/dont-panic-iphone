@@ -12,17 +12,21 @@
 NSArray *keys;
 NSArray *objects;
 NSMutableDictionary *controllers;
-
 @implementation com_hitchhikers_dontpanicViewController
 
 @synthesize navigationController;
 @synthesize managedObjectContext;
+@synthesize currentLocation;
+@synthesize map;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     controllers = [[NSMutableDictionary alloc] init];
     keys = [NSArray arrayWithObjects:@"Office Locations", @"Countries", @"TWers", @"Admins", @"Hangouts", @"Routes", @"Transportation", nil];
     objects = [NSArray arrayWithObjects:@"Search", @"Search", @"Search", @"Search", @"Map", @"Map", @"Search", nil];
+    map = [[CLLocationManager alloc] init];
+    map.delegate = self;
+    [map startUpdatingLocation];
     return self;
 }
 
@@ -115,6 +119,57 @@ NSMutableDictionary *controllers;
     }
     return cell;
 
+}
+
+-(IBAction) panicButtonPushed:(id)sender
+{
+    if(currentLocation == nil)
+        NSLog(@"current location not known");
+    else {
+        NSError *error;
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Office"
+                                                  inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        double shortestDistance = 99999999999.0;
+        Office *closestOffice = nil;
+        for (Office *info in fetchedObjects) {
+            CLLocation *location = [[CLLocation alloc]initWithLatitude:info.place.latitude.doubleValue longitude:info.place.longitude.doubleValue];
+            double distance = [currentLocation distanceFromLocation:location];
+            if(distance < shortestDistance && [info.admins count] > 0) {
+                shortestDistance = distance;
+                closestOffice = info;
+            }
+        }
+        if(closestOffice != nil) {
+            NSString *osVersion = [[UIDevice currentDevice] systemVersion];
+            NSURL *url = [NSURL URLWithString:
+                          [NSString stringWithFormat:@"tel:%@",
+                           [((Admin *)[closestOffice.admins anyObject]).phoneNumber stringByTrimmingCharactersInSet:
+                            [NSCharacterSet whitespaceCharacterSet]]] ];
+            if ([osVersion floatValue] >= 3.1) { 
+                UIWebView *webview = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame]; 
+                [webview loadRequest:[NSURLRequest requestWithURL:url]]; 
+                webview.hidden = YES; 
+                // Assume we are in a view controller and have access to self.view 
+                [self.view addSubview:webview]; 
+            } else { 
+                // On 3.0 and below, dial as usual 
+                [[UIApplication sharedApplication] openURL: url];
+            }
+        }
+    }
+}
+
+-(IBAction) syncButtonPushed:(id)sender
+{
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    self.currentLocation = newLocation;
 }
 
 @end

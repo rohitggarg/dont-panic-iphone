@@ -12,7 +12,8 @@
 
 @implementation Admin
 
-@dynamic contact;
+@dynamic email;
+@dynamic phoneNumber;
 @dynamic name;
 @dynamic office;
 

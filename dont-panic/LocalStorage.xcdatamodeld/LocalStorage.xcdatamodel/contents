@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C2002" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Admin" representedClassName="Admin" syncable="YES">
-        <attribute name="contact" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="office" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Office" inverseName="admins" inverseEntity="Office" syncable="YES"/>
     </entity>
     <entity name="City" representedClassName="City" syncable="YES">
@@ -40,7 +41,7 @@
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Place" inverseName="type" inverseEntity="Place" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Admin" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Admin" positionX="160" positionY="192" width="128" height="105"/>
         <element name="City" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Company" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Country" positionX="160" positionY="192" width="128" height="75"/>

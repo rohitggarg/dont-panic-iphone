@@ -40,7 +40,8 @@
     Admin *admin = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:context];
     admin.office = place.office;
     admin.name = @"Harvinder";
-    admin.contact = @"9818656005";
+    admin.email = @"harvinderk@thoughtworks.com";
+    admin.phoneNumber = @"+919818656005";
     country.name = @"India";
     Place *transportHub = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
     transportHub.type = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
@@ -50,6 +51,15 @@
     transportHub.address2 = @"Kashmere Gate";
     transportHub.desc = @"Inter state bus terminal of delhi";
     transportHub.city = city;
+    Place *hangout = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
+    hangout.name = @"Pizza Hut";
+    hangout.type = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
+    hangout.type.name = @"Hangout";
+    hangout.address1 = @"Rohini";
+    hangout.address2 = @"Delhi";
+    hangout.desc = @"Eatout for having pizzas";
+    hangout.city = city;
+
     NSError *error;
     if(![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);

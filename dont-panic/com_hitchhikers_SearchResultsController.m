@@ -123,7 +123,9 @@ NSMutableArray *results;
     if([self.viewType isEqual:@"Map"]) {
         [self initMap:self.map];
     } else if([self.viewType isEqual:@"Detail"]) {
-        text.text = [NSString stringWithFormat:@" Name : %@\n Office : %@\n %@",admin.name, admin.office.place.name, admin.contact];
+        [text loadHTMLString:[NSString stringWithFormat:@" <font color='#996633' face='sans-serif'><table border='0'><tr><td><h1>Name</h1></td><td><h1>: %@</h1></td></tr><tr><td><h2>Office</h2></td><td><h2>: %@</h2></td></tr><tr><td>Address</td><td>: %@,%@<br/>&nbsp;&nbsp;%@ %@</td></tr></table>Email : <a href='mailto:%@'>%@</a><br/>Phone : <a href='tel:%@'>%@</a></font>",admin.name, admin.office.place.name,admin.office.place.address1,admin.office.place.address2,admin.office.place.city.name, admin.office.place.city.country.name, admin.email, admin.email, admin.phoneNumber, admin.phoneNumber] baseURL:nil];
+        self.baseLocation = admin.office.place;
+        [self initMap:self.map];
     } else {
         [self.table reloadData];
     }
