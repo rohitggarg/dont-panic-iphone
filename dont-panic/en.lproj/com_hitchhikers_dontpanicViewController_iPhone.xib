@@ -43,7 +43,7 @@
 							<object class="IBUIButton" id="979805125">
 								<reference key="NSNextResponder" ref="320838597"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{41, 0}, {100, 100}}</string>
+								<string key="NSFrame">{{35, -27}, {141, 139}}</string>
 								<reference key="NSSuperview" ref="320838597"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
@@ -80,7 +80,7 @@
 							<object class="IBUIButton" id="612908721">
 								<reference key="NSNextResponder" ref="320838597"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{178, 0}, {100, 100}}</string>
+								<string key="NSFrame">{{199, 13}, {74, 74}}</string>
 								<reference key="NSSuperview" ref="320838597"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
@@ -88,13 +88,16 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
 								<reference key="IBUIHighlightedTitleColor" ref="856054831"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="486735720"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">sync.png</string>
+								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">2</int>
 									<int key="size">2</int>
@@ -278,10 +281,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">Panic.png</string>
-			<string key="NS.object.0">{256, 256}</string>
-		</object>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="Panic.png">{256, 256}</string>
+			<string key="sync.png">{256, 256}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
 </archive>
