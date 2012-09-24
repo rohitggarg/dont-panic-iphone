@@ -54,6 +54,7 @@
 		F988E96515E6971800C8D8B7 /* Transportation.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96315E6971800C8D8B7 /* Transportation.png */; };
 		F99935C315EFAF6800DFE193 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99935C215EFAF6800DFE193 /* CoreData.framework */; };
 		F99935DB15EFC52200DFE193 /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */; };
+		F9B4998F160F66E300D1AF1B /* sync.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B4998E160F66E300D1AF1B /* sync.png */; };
 		F9B54480160985F500153C34 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B5447F160985F500153C34 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,7 @@
 		F988E96315E6971800C8D8B7 /* Transportation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transportation.png; sourceTree = "<group>"; };
 		F99935C215EFAF6800DFE193 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F99935DA15EFC52200DFE193 /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
+		F9B4998E160F66E300D1AF1B /* sync.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sync.png; sourceTree = "<group>"; };
 		F9B5447F160985F500153C34 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -155,7 +157,6 @@
 		F96C6D9B15E47AF50009F6C1 = {
 			isa = PBXGroup;
 			children = (
-				F9B5447F160985F500153C34 /* AddressBook.framework */,
 				F96C6DD015E4872E0009F6C1 /* icon-114.png */,
 				F96C6DCE15E487280009F6C1 /* icon-57.png */,
 				F96C6DB015E47AF50009F6C1 /* dont-panic */,
@@ -175,6 +176,7 @@
 		F96C6DA915E47AF50009F6C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9B5447F160985F500153C34 /* AddressBook.framework */,
 				F99935C215EFAF6800DFE193 /* CoreData.framework */,
 				F9746B8D15E6556600CDCCEE /* CoreLocation.framework */,
 				F9746B8A15E6555300CDCCEE /* MapKit.framework */,
@@ -227,6 +229,7 @@
 				F96C6DBA15E47AF50009F6C1 /* com_hitchhikers_dontpanicAppDelegate.m */,
 				F96C6DBC15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.h */,
 				F96C6DBD15E47AF50009F6C1 /* com_hitchhikers_dontpanicViewController.m */,
+				F9B4998E160F66E300D1AF1B /* sync.png */,
 				F96630E915F06A5F00332799 /* Country.h */,
 				F96630EA15F06A5F00332799 /* Country.m */,
 				F96630EC15F06A6000332799 /* Place.h */,
@@ -331,6 +334,7 @@
 				F988E96515E6971800C8D8B7 /* Transportation.png in Resources */,
 				F936E7B515E72602004D423E /* Panic.png in Resources */,
 				F982F29716002971007C603C /* DetailView_iPhone.xib in Resources */,
+				F9B4998F160F66E300D1AF1B /* sync.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
