@@ -19,7 +19,12 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+- (void)backupCurrentDB;
+- (void)revertDB;
+- (void)makeCurrentDB:(NSManagedObjectContext *)context;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+- (void)syncToDb:(NSManagedObjectContext *)context values:(NSDictionary *)values;
 
 @end

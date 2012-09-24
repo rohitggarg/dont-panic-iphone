@@ -24,57 +24,110 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
-- (void)dummy:(NSManagedObjectContext *)context {
-    Place *place = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
-    Country *country = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:context];
-    place.name = @"TW Delhi";
-    place.type = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
-    place.type.name = @"Office";
-    place.office = [NSEntityDescription insertNewObjectForEntityForName:@"Office" inManagedObjectContext:context];
-    place.office.company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:context];
-    place.office.company.name = @"ThoughtWorks";
-    City *city = [NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:context];
-    city.name = @"Delhi";
-    city.country = country;
-    place.city = city;
-    Admin *admin = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:context];
-    admin.office = place.office;
-    admin.name = @"Harvinder";
-    admin.email = @"harvinderk@thoughtworks.com";
-    admin.phoneNumber = @"+919818656005";
-    country.name = @"India";
-    Place *transportHub = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
-    transportHub.type = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
-    transportHub.type.name= @"Transport";
-    transportHub.name = @"Bus Stop";
-    transportHub.address1 = @"ISBT";
-    transportHub.address2 = @"Kashmere Gate";
-    transportHub.desc = @"Inter state bus terminal of delhi";
-    transportHub.city = city;
-    Place *hangout = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
-    hangout.name = @"Pizza Hut";
-    hangout.type = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
-    hangout.type.name = @"Hangout";
-    hangout.address1 = @"Rohini";
-    hangout.address2 = @"Delhi";
-    hangout.desc = @"Eatout for having pizzas";
-    hangout.city = city;
-
-    NSError *error;
-    if(![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+- (void)syncToDb:(NSManagedObjectContext *)context values:(NSDictionary *)values {
+    PlaceType *officeType = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
+    officeType.name = @"Office";
+    NSMutableDictionary *companyDict = [[NSMutableDictionary alloc] initWithCapacity:10];
+    for(NSDictionary *companies in [values valueForKey:@"companies"]) {
+        Company *company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:context];
+        company.name = [companies valueForKey:@"name"];
+        [companyDict setValue:company forKey:[NSString stringWithFormat:@"%d",[companies valueForKey:@"id"]]];
+    }
+    NSMutableDictionary *cityDict = [[NSMutableDictionary alloc] initWithCapacity:10];
+    for(NSDictionary *countries in [values valueForKey:@"countries"]) {
+        Country *country = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:context];
+        country.name = [countries valueForKey:@"name"];
+        for(NSDictionary *cities in [values valueForKey:@"cities"]) {
+            if([[cities valueForKey:@"country_id"] isEqual:[countries valueForKey:@"id"]]) {
+                City *city = [NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:context];
+                city.name = [cities valueForKey:@"name"];
+                city.country = country;
+                [cityDict setValue:city forKey:[NSString stringWithFormat:@"%d",[cities valueForKey:@"id"]]];
+                for(NSDictionary *offices in [values valueForKey:@"offices"]){
+                    if([[offices valueForKey:@"city_id"] isEqual:[cities valueForKey:@"id"]]) {
+                        Office *office = [NSEntityDescription insertNewObjectForEntityForName:@"Office" inManagedObjectContext:context];
+                        office.company = [companyDict valueForKey:[NSString stringWithFormat:@"%d",[offices valueForKey:@"company_id"]]];
+                        office.place = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
+                        if([offices valueForKey:@"latitude"] != NSNull.null)
+                            office.place.latitude = [offices valueForKey:@"latitude"];
+                        if([offices valueForKey:@"longitude"] != NSNull.null)
+                            office.place.longitude = [offices valueForKey:@"longitude"];
+                        office.place.name = [offices valueForKey:@"name"];
+                        office.place.address1 = [offices valueForKey:@"address"];
+                        office.place.address2 = [offices valueForKey:@"address"];
+                        office.place.contactNo = [offices valueForKey:@"phone_numbers"];
+                        office.place.desc = [offices valueForKey:@"email"];
+                        office.place.type = officeType;
+                        for(NSDictionary *admins in [values valueForKey:@"administrators"]) {
+                            if([[admins valueForKey:@"office_id"] isEqual:[offices valueForKey:@"id"]]) {
+                                Admin *admin = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:context];
+                                admin.name = [admins valueForKey:@"name"];
+                                admin.email = [admins valueForKey:@"email"];
+                                admin.phoneNumber = [admins valueForKey:@"phone_numbers"];
+                                admin.office = office;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    for(NSDictionary *placeTypes in [values valueForKey:@"place_types"]) {
+        PlaceType *placeType = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:context];
+        placeType.name = [placeTypes valueForKey:@"name"];
+        for(NSDictionary *places in [values valueForKey:@"places"]) {
+            if([[places valueForKey:@"place_type_id"] isEqual:[placeTypes valueForKey:@"id"]]) {
+                Place *place = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
+                if([places valueForKey:@"latitude"] != NSNull.null)
+                    place.latitude = [places valueForKey:@"latitude"];
+                if([places valueForKey:@"longitude"] != NSNull.null)
+                    place.longitude = [places valueForKey:@"longitude"];
+                place.name = [places valueForKey:@"name"];
+                place.address1 = [places valueForKey:@"address"];
+                place.address2 = [places valueForKey:@"address"];
+                place.contactNo = [places valueForKey:@"phone_numbers"];
+                place.desc = [places valueForKey:@"description"];
+                place.type = placeType;
+                place.city = [cityDict valueForKey:[NSString stringWithFormat:@"%d",[places valueForKey:@"city_id"]]];
+            }
+        }
     }
 }
 
-- (void)syncSamaan {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    //[self dummy:context];
+- (void)backupCurrentDB {
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LocalStorage_1.sqlite"];
+    
+    NSError *error = nil;
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+}
+- (void)revertDB {
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LocalStorage.sqlite"];
+    
+    NSError *error = nil;
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+}
+- (void)makeCurrentDB:(NSManagedObjectContext *)context {
+    NSError *error;
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LocalStorage.sqlite"];
+    NSURL *storeURL1 = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LocalStorage_1.sqlite"];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+    [[NSFileManager defaultManager] moveItemAtURL:storeURL1 toURL:storeURL error:&error];
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
 
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self syncSamaan];
+    [self managedObjectContext];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     com_hitchhikers_dontpanicViewController *view;
     // Override point for customization after application launch.
@@ -84,6 +137,7 @@
         view = [[com_hitchhikers_dontpanicViewController alloc] initWithNibName:@"com_hitchhikers_dontpanicViewController_iPad" bundle:nil];
     }
     view.managedObjectContext = _managedObjectContext;
+    view.delegate = self;
     self.viewController = [[UINavigationController alloc] initWithRootViewController:view];
     view.navigationController = self.viewController;
     view.title = @"Please select...";
@@ -145,7 +199,7 @@
 
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
+- (NSManagedObjectContext *)getManagedObjectContext
 {
     if (_managedObjectContext != nil) {
         return _managedObjectContext;

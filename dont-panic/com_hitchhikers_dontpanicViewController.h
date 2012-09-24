@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "com_hitchhikers_dontpanicAppDelegate.h"
 
 @interface com_hitchhikers_dontpanicViewController : UITableViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UINavigationController *navigationController;
-
+@property (strong, nonatomic) com_hitchhikers_dontpanicAppDelegate *delegate;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @property (nonatomic,strong) CLLocation *currentLocation;

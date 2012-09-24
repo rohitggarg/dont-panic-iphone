@@ -19,6 +19,7 @@ NSMutableDictionary *controllers;
 @synthesize managedObjectContext;
 @synthesize currentLocation;
 @synthesize map;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -183,84 +184,17 @@ NSMutableDictionary *controllers;
         
     } else {
         NSDictionary *values = [data JSONValue];
-        //place_types
-        //countries
-        //cities
-        //companies
-        //administrators
-        //offices - no place type
-        //places
-        PlaceType *officeType = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:managedObjectContext];
-        officeType.name = @"Office";
-        NSMutableDictionary *companyDict = [[NSMutableDictionary alloc] initWithCapacity:10];
-        for(NSDictionary *companies in [values valueForKey:@"companies"]) {
-            Company *company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:managedObjectContext];
-            company.name = [companies valueForKey:@"name"];
-            [companyDict setValue:company forKey:[companies valueForKey:@"id"]];
-        }
-        NSMutableDictionary *cityDict = [[NSMutableDictionary alloc] initWithCapacity:10];
-        for(NSDictionary *countries in [values valueForKey:@"countries"]) {
-            Country *country = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:managedObjectContext];
-            country.name = [countries valueForKey:@"name"];
-            for(NSDictionary *cities in [values valueForKey:@"cities"]) {
-                if([[cities valueForKey:@"country_id"] isEqual:[countries valueForKey:@"id"]]) {
-                    City *city = [NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:managedObjectContext];
-                    city.name = [cities valueForKey:@"name"];
-                    city.country = country;
-                    [cityDict setValue:city forKey:[cities valueForKey:@"id"]];
-                    for(NSDictionary *offices in [values valueForKey:@"offices"]){
-                        if([[offices valueForKey:@"city_id"] isEqual:[cities valueForKey:@"id"]]) {
-                            Office *office = [NSEntityDescription insertNewObjectForEntityForName:@"Office" inManagedObjectContext:managedObjectContext];
-                            office.company = [companyDict valueForKey:[offices valueForKey:@"company_id"]];
-                            office.place = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:managedObjectContext];
-                            office.place.latitude = [[NSDecimalNumber alloc] initWithString:[offices valueForKey:@"latitude"]];
-                            office.place.longitude = [[NSDecimalNumber alloc] initWithString:[offices valueForKey:@"longitude"]];
-                            office.place.name = [offices valueForKey:@"name"];
-                            office.place.address1 = [offices valueForKey:@"address1"];
-                            office.place.address2 = [offices valueForKey:@"address2"];
-                            office.place.contactNo = [offices valueForKey:@"contactNo"];
-                            office.place.desc = [offices valueForKey:@"desc"];
-                            office.place.type = officeType;
-                            for(NSDictionary *admins in [values valueForKey:@"administrators"]) {
-                                if([[admins valueForKey:@"office_id"] isEqual:[offices valueForKey:@"id"]]) {
-                                    Admin *admin = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:managedObjectContext];
-                                    admin.name = [admins valueForKey:@"name"];
-                                    admin.email = [admins valueForKey:@"email"];
-                                    admin.phoneNumber = [admins valueForKey:@"phoneNumber"];
-                                    admin.office = office;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        for(NSDictionary *placeTypes in [values valueForKey:@"place_types"]) {
-            PlaceType *placeType = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceType" inManagedObjectContext:managedObjectContext];
-            placeType.name = [placeTypes valueForKey:@"name"];
-            for(NSDictionary *places in [values valueForKey:@"places"]) {
-                if([[places valueForKey:@"place_type"] isEqual:[placeType valueForKey:@"id"]]) {
-                    Place *place = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:managedObjectContext];
-                    place.latitude = [[NSDecimalNumber alloc] initWithString:[places valueForKey:@"latitude"]];
-                    place.longitude = [[NSDecimalNumber alloc] initWithString:[places valueForKey:@"longitude"]];
-                    place.name = [places valueForKey:@"name"];
-                    place.address1 = [places valueForKey:@"address1"];
-                    place.address2 = [places valueForKey:@"address2"];
-                    place.contactNo = [places valueForKey:@"contactNo"];
-                    place.desc = [places valueForKey:@"desc"];
-                    place.type = placeType;
-                    place.city = [cityDict valueForKey:[places valueForKey:@"city_id"]];
-                }
-            }
-        }
+        [delegate backupCurrentDB];
+        [delegate syncToDb:[delegate managedObjectContext] values:values];
         NSError *error;
-        if(![managedObjectContext save:&error]) {
+        if(![[delegate managedObjectContext] save:&error]) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                             message:[NSString stringWithFormat:@"Couldn't sync because %@", [error localizedDescription]]
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK" 
                                                   otherButtonTitles: nil];
             [alert show];
+            [delegate revertDB];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
 														message:@"Sync successful!"
@@ -268,7 +202,10 @@ NSMutableDictionary *controllers;
 											  cancelButtonTitle:@"OK" 
 											  otherButtonTitles: nil];
             [alert show];
+            [delegate makeCurrentDB:[delegate managedObjectContext]];
         }
+        controllers = [[NSMutableDictionary alloc] init];
+        managedObjectContext = [delegate managedObjectContext];
     }
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
