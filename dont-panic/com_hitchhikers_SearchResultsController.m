@@ -123,7 +123,7 @@ NSMutableArray *results;
     if([self.viewType isEqual:@"Map"]) {
         [self initMap:self.map];
     } else if([self.viewType isEqual:@"Detail"]) {
-        [text loadHTMLString:[NSString stringWithFormat:@"<html><head></head><body><font color='#996633' face='sans-serif'><table border='0'><tr><td><h1>Name</h1></td><td><h1>: %@</h1></td></tr><tr><td><h2>Office</h2></td><td><h2>: %@</h2></td></tr><tr><td>Address</td><td>: %@,%@<br/>&nbsp;&nbsp;%@ %@</td></tr></table>Email : <a href='mailto:%@'>%@</a><br/>Phone : <a>%@</a></font></body></html>",admin.name, admin.office.place.name,admin.office.place.address,admin.office.place.contactNo,admin.office.place.city.name, admin.office.place.city.country.name, admin.email, admin.email, admin.phoneNumber] baseURL:nil];
+        [text loadHTMLString:[NSString stringWithFormat:@"<html><head></head><body><font color='#996633' face='sans-serif' size='2'><table border='0' cellspacing='0' cellpadding='0'><tr><td><h3>Name</h3></td><td><h3>: %@</h3></td></tr><tr><td><h4>Office</h4></td><td><h4>: %@</h4></td></tr><tr><td valign='top'>Address</td><td>: %@<br/>&nbsp;&nbsp;%@ %@<br/>&nbsp;&nbsp;Tel: %@</td></tr></table><br/>Email: <a href='mailto:%@'>%@</a><br/>Phone: <a>%@</a></font></body></html>",admin.name, admin.office.place.name,admin.office.place.address,admin.office.place.city.name, admin.office.place.city.country.name, admin.office.place.contactNo,admin.email, admin.email, admin.phoneNumber] baseURL:nil];
         self.baseLocation = admin.office.place;
         [self initMap:self.map];
     } else {
@@ -290,11 +290,11 @@ NSMutableArray *results;
         pinView.pinColor = MKPinAnnotationColorPurple;
         pinView.canShowCallout = YES;
         pinView.animatesDrop = YES;
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0,0,150,40)];
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10,10,170,80)];
         textView.textColor = [UIColor whiteColor];
-        textView.backgroundColor = [UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0];
-        [textView setText:[NSString stringWithFormat:@"%@\n%@,%@",[placeMark.addressDictionary objectForKey:@"address1"],[placeMark.addressDictionary objectForKey:@"address2"],[placeMark.addressDictionary objectForKey:@"city"]]];
-        pinView.rightCalloutAccessoryView = textView;
+        textView.backgroundColor = [UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0.5];
+        [textView setText:[NSString stringWithFormat:@"%@\n%@\n Tel : %@",[placeMark.addressDictionary objectForKey:@"address1"],[placeMark.addressDictionary objectForKey:@"city"], [placeMark.addressDictionary objectForKey:@"address2"]]];
+        [pinView insertSubview:textView atIndex:1];
         return pinView;
     }
     else {

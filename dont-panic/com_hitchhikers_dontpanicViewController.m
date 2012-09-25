@@ -150,6 +150,12 @@ NSMutableDictionary *controllers;
             NSString *target=[NSString stringWithFormat:@"tel:%@",
             [((Admin *)[closestOffice.admins anyObject]).phoneNumber stringByTrimmingCharactersInSet:
              [NSCharacterSet whitespaceCharacterSet]]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
+                                                            message:[NSString stringWithFormat:@"about to call %@", target]
+                                                           delegate:nil
+                                                  cancelButtonTitle: @"OK"
+                                                  otherButtonTitles: nil];
+            [alert show];
             if ([osVersion floatValue] >= 3.1) { 
                 UIWebView *webview = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame]; 
                 // Assume we are in a view controller and have access to self.view 
@@ -168,10 +174,17 @@ NSMutableDictionary *controllers;
 
 -(IBAction) syncButtonPushed:(id)sender
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
+                                                    message:[NSString stringWithFormat:@"about to send request"]
+                                                   delegate:nil
+                                          cancelButtonTitle: nil
+                                          otherButtonTitles: nil];
+    [alert show];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://dont-panic.herokuapp.com/data.json"]];
     [request setHTTPMethod:@"GET"];
     NSURLResponse *response;
     NSError *err;
+    [alert dismissWithClickedButtonIndex:-1 animated:false];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
     NSString *data = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
     if (err != NULL) {
