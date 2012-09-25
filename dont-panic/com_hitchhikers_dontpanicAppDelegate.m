@@ -53,11 +53,11 @@
                         if([offices valueForKey:@"longitude"] != NSNull.null)
                             office.place.longitude = [offices valueForKey:@"longitude"];
                         office.place.name = [offices valueForKey:@"name"];
-                        office.place.address1 = [offices valueForKey:@"address"];
-                        office.place.address2 = [offices valueForKey:@"address"];
+                        office.place.address = [offices valueForKey:@"address"];
                         office.place.contactNo = [offices valueForKey:@"phone_numbers"];
                         office.place.desc = [offices valueForKey:@"email"];
                         office.place.type = officeType;
+                        office.place.city = [cityDict valueForKey:[NSString stringWithFormat:@"%d",[offices valueForKey:@"city_id"]]];
                         for(NSDictionary *admins in [values valueForKey:@"administrators"]) {
                             if([[admins valueForKey:@"office_id"] isEqual:[offices valueForKey:@"id"]]) {
                                 Admin *admin = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:context];
@@ -83,8 +83,7 @@
                 if([places valueForKey:@"longitude"] != NSNull.null)
                     place.longitude = [places valueForKey:@"longitude"];
                 place.name = [places valueForKey:@"name"];
-                place.address1 = [places valueForKey:@"address"];
-                place.address2 = [places valueForKey:@"address"];
+                place.address = [places valueForKey:@"address"];
                 place.contactNo = [places valueForKey:@"phone_numbers"];
                 place.desc = [places valueForKey:@"description"];
                 place.type = placeType;

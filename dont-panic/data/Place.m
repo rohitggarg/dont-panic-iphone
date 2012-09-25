@@ -14,8 +14,7 @@
 
 @implementation Place
 
-@dynamic address1;
-@dynamic address2;
+@dynamic address;
 @dynamic contactNo;
 @dynamic desc;
 @dynamic latitude;

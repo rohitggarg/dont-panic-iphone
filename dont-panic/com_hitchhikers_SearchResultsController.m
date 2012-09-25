@@ -69,7 +69,7 @@ NSMutableArray *results;
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"PlaceType"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
-        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name = %@",@"Transport"]];
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name = %@",@"Transportation"]];
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         for (PlaceType *info in fetchedObjects) {
             for (Place *place in info.places) {
@@ -81,7 +81,7 @@ NSMutableArray *results;
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"PlaceType"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
-        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name = %@",@"Hangout"]];
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name != %@ and name != %@",@"Transportation", @"Office"]];
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         for (PlaceType *info in fetchedObjects) {
             for (Place *place in info.places) {
@@ -123,7 +123,7 @@ NSMutableArray *results;
     if([self.viewType isEqual:@"Map"]) {
         [self initMap:self.map];
     } else if([self.viewType isEqual:@"Detail"]) {
-        [text loadHTMLString:[NSString stringWithFormat:@"<html><head></head><body><font color='#996633' face='sans-serif'><table border='0'><tr><td><h1>Name</h1></td><td><h1>: %@</h1></td></tr><tr><td><h2>Office</h2></td><td><h2>: %@</h2></td></tr><tr><td>Address</td><td>: %@,%@<br/>&nbsp;&nbsp;%@ %@</td></tr></table>Email : <a href='mailto:%@'>%@</a><br/>Phone : <a>%@</a></font></body></html>",admin.name, admin.office.place.name,admin.office.place.address1,admin.office.place.address2,admin.office.place.city.name, admin.office.place.city.country.name, admin.email, admin.email, admin.phoneNumber] baseURL:nil];
+        [text loadHTMLString:[NSString stringWithFormat:@"<html><head></head><body><font color='#996633' face='sans-serif'><table border='0'><tr><td><h1>Name</h1></td><td><h1>: %@</h1></td></tr><tr><td><h2>Office</h2></td><td><h2>: %@</h2></td></tr><tr><td>Address</td><td>: %@,%@<br/>&nbsp;&nbsp;%@ %@</td></tr></table>Email : <a href='mailto:%@'>%@</a><br/>Phone : <a>%@</a></font></body></html>",admin.name, admin.office.place.name,admin.office.place.address,admin.office.place.contactNo,admin.office.place.city.name, admin.office.place.city.country.name, admin.email, admin.email, admin.phoneNumber] baseURL:nil];
         self.baseLocation = admin.office.place;
         [self initMap:self.map];
     } else {
@@ -173,6 +173,9 @@ NSMutableArray *results;
     if([self.title isEqualToString:@"Countries"]) {
         controller.title=@"Office Locations";
         controller.country = obj;
+    }
+    if([self.title isEqualToString:@"Admins"]) {
+        controller.title=@"Office Locations";
     }
     if([controller.viewType isEqualToString:@"Map"]) {
         controller.baseLocation = obj;
@@ -241,8 +244,8 @@ NSMutableArray *results;
         CLLocationDegrees latitude = [[baseLocation latitude] doubleValue];
         NSMutableDictionary *completeAddress = [[NSMutableDictionary alloc] initWithCapacity:5];
         [completeAddress setValue:[NSString stringWithFormat:@"%@,",baseLocation.name] forKey:kABPersonAddressStreetKey];
-        [completeAddress setValue:baseLocation.address1 forKey:@"address1"];
-        [completeAddress setValue:baseLocation.address2 forKey:@"address2"];
+        [completeAddress setValue:baseLocation.address forKey:@"address1"];
+        [completeAddress setValue:baseLocation.contactNo forKey:@"address2"];
         [completeAddress setValue:baseLocation.city.name forKey:@"city"];
         [completeAddress setValue:baseLocation.city.country.name forKey:kABPersonAddressCountryKey];
         CLLocationDegrees longitude = [[baseLocation longitude] doubleValue];

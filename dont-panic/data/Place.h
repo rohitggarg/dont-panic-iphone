@@ -13,8 +13,7 @@
 
 @interface Place : NSManagedObject
 
-@property (nonatomic, retain) NSString * address1;
-@property (nonatomic, retain) NSString * address2;
+@property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * contactNo;
 @property (nonatomic, retain) NSString * desc;
 @property (nonatomic, retain) NSDecimalNumber * latitude;

@@ -25,8 +25,7 @@
         <relationship name="place" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="office" inverseEntity="Place" syncable="YES"/>
     </entity>
     <entity name="Place" representedClassName="Place" syncable="YES">
-        <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contactNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -46,7 +45,7 @@
         <element name="Company" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Country" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Office" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Place" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="Place" positionX="160" positionY="192" width="128" height="180"/>
         <element name="PlaceType" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>
