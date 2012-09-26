@@ -24,7 +24,7 @@ NSMutableDictionary *controllers;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     controllers = [[NSMutableDictionary alloc] init];
-    keys = [NSArray arrayWithObjects:@"Office Locations", @"Countries", @"TWers", @"Admins", @"Hangouts", @"Routes", @"Transportation", nil];
+    keys = [NSArray arrayWithObjects:@"Office Locations", @"Countries", @"Favorites", @"Admins", @"Hangouts", @"Routes", @"Transportation", nil];
     objects = [NSArray arrayWithObjects:@"Search", @"Search", @"Search", @"Search", @"Map", @"Map", @"Search", nil];
     map = [[CLLocationManager alloc] init];
     map.delegate = self;

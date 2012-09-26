@@ -47,7 +47,7 @@ NSMutableArray *results;
             [results addObject:[info place]];
         }
     }
-    if([[self title] isEqual:@"TWers"]) {
+    if([[self title] isEqual:@"Favorites"]) {
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Country"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
@@ -113,6 +113,7 @@ NSMutableArray *results;
     NSString *os = @"iPhone";
     self = [super initWithNibName:[NSString localizedStringWithFormat:@"%@View_%@", nibNameOrNil, os] bundle:nibBundleOrNil];
     self.viewType = nibNameOrNil;
+    self.map.delegate = self;
     return self;
 }
 
@@ -227,8 +228,13 @@ NSMutableArray *results;
     mapView.mapType=MKMapTypeHybrid;
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta=5;
-    span.longitudeDelta=5;
+    if(self.title == @"Hangouts") {
+        span.latitudeDelta=0.1;
+        span.longitudeDelta=0.1;
+    } else {
+        span.latitudeDelta=5;
+        span.longitudeDelta=5;
+    }
     region.span=span;
     region.center=location;
     [mapView setRegion:region animated:TRUE];
@@ -238,7 +244,6 @@ NSMutableArray *results;
 
 - (void)initMap:(MKMapView *)mapView
 {
-    
     [mapView removeAnnotations:[mapView annotations]];
     if(self.baseLocation != nil) {
         CLLocationDegrees latitude = [[baseLocation latitude] doubleValue];
@@ -256,8 +261,8 @@ NSMutableArray *results;
         mapView.mapType=MKMapTypeHybrid;
         MKCoordinateRegion region;
         MKCoordinateSpan span;
-        span.latitudeDelta=0.2;
-        span.longitudeDelta=0.2;
+        span.latitudeDelta=0.01;
+        span.longitudeDelta=0.01;
         region.span=span;
         region.center=point;
         [mapView setRegion:region animated:TRUE];
@@ -265,6 +270,9 @@ NSMutableArray *results;
     }
 
     for(Place *result in results) {
+        if(self.baseLocation != nil && self.baseLocation == result) {
+            continue;
+        }
         CLLocationDegrees latitude = [[result latitude] doubleValue];
         CLLocationDegrees longitude = [[result longitude] doubleValue];
         CLLocationCoordinate2D point = CLLocationCoordinate2DMake(latitude, longitude);
