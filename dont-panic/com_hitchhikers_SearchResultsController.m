@@ -279,7 +279,7 @@ NSMutableArray *results;
         MKPointAnnotation *annotation = [MKPointAnnotation alloc];
         [annotation setCoordinate:point];
         [annotation setTitle:[result name]];
-        [annotation setSubtitle:[result desc]];
+        [annotation setSubtitle:[NSString stringWithFormat:@"%@ - %@",result.type.name, [result desc]]];
         [mapView addAnnotation:annotation];
     }
     
