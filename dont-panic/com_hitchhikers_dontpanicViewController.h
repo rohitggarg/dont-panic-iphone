@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "com_hitchhikers_dontpanicAppDelegate.h"
+#import "City.h"
 
 @interface com_hitchhikers_dontpanicViewController : UITableViewController <CLLocationManagerDelegate>
 
@@ -18,7 +19,7 @@
 
 @property (nonatomic,strong) CLLocation *currentLocation;
 @property (nonatomic,strong) CLLocationManager *map;
-
+@property (nonatomic,strong) City *city;
 -(IBAction) panicButtonPushed:(id)sender;
 -(IBAction) syncButtonPushed:(id)sender;
 @end

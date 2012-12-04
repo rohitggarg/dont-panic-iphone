@@ -19,6 +19,7 @@ NSMutableArray *results;
 @synthesize baseLocation;
 @synthesize admin;
 @synthesize text;
+@synthesize city;
 
 -(void)getResultsForQuery:(NSString *)query {
     NSError *error;
@@ -29,7 +30,6 @@ NSMutableArray *results;
                                               inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        
         for (Country *info in fetchedObjects) {
             [results addObject:info];
         }
@@ -38,8 +38,16 @@ NSMutableArray *results;
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Office"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        if(self.city != nil) {
+            NSPredicate *filter = [NSPredicate predicateWithFormat:@"place.city == %@",city];
+            [fetchRequest setPredicate:filter];
+        }
         if(self.country != nil) {
             NSPredicate *filter = [NSPredicate predicateWithFormat:@"place.city.country == %@",country];
+            [fetchRequest setPredicate:filter];
+        }
+        if(self.city != nil && self.country != nil) {
+            NSPredicate *filter = [NSPredicate predicateWithFormat:@"place.city.country == %@ and place.city == %@",country, city];
             [fetchRequest setPredicate:filter];
         }
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
@@ -48,9 +56,16 @@ NSMutableArray *results;
         }
     }
     if([[self title] isEqual:@"Favorites"]) {
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Country"
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Place"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        NSPredicate *filter = [NSPredicate predicateWithFormat:@"office == NULL"];
+        [fetchRequest setPredicate:filter];
+
+        if(self.city != nil) {
+            NSPredicate *filter = [NSPredicate predicateWithFormat:@"city == %@ and office == NULL",city];
+            [fetchRequest setPredicate:filter];
+        }
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         for (Country *info in fetchedObjects) {
             [results addObject:info];
@@ -60,6 +75,10 @@ NSMutableArray *results;
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Admin"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        if(self.city != nil) {
+            NSPredicate *filter = [NSPredicate predicateWithFormat:@"office.place.city == %@",city];
+            [fetchRequest setPredicate:filter];
+        }
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         for (Admin *info in fetchedObjects) {
             [results addObject:info];
@@ -73,7 +92,8 @@ NSMutableArray *results;
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         for (PlaceType *info in fetchedObjects) {
             for (Place *place in info.places) {
-                [results addObject:place];
+                if(city == nil || place.city == city)
+                    [results addObject:place];
             }
         }
     }
@@ -85,7 +105,8 @@ NSMutableArray *results;
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         for (PlaceType *info in fetchedObjects) {
             for (Place *place in info.places) {
-                [results addObject:place];
+                if(city == nil || place.city == city)
+                    [results addObject:place];
             }
         }
     }
@@ -95,6 +116,10 @@ NSMutableArray *results;
         [fetchRequest setEntity:entity];
 
         NSPredicate *filter = [NSPredicate predicateWithFormat:@"office != NULL"];
+        if(self.city != nil) {
+            NSPredicate *filter = [NSPredicate predicateWithFormat:@"office != NULL and city == %@",city];
+            [fetchRequest setPredicate:filter];
+        }
         [fetchRequest setPredicate:filter];
 
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
@@ -170,6 +195,17 @@ NSMutableArray *results;
     }
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+    [searchBar resignFirstResponder];
+    [searchBar setText:@""];
+    [self getResultsForQuery:nil];
+    if([self.viewType isEqual:@"Map"]) {
+        [self initMap:self.map];
+    } else {
+        [self.table reloadData];
+    }
+}
+
 -(void) initializeSubController:(com_hitchhikers_SearchResultsController *)controller obj:(NSObject*)obj {
     if([self.title isEqualToString:@"Countries"]) {
         controller.title=@"Office Locations";
@@ -228,13 +264,8 @@ NSMutableArray *results;
     mapView.mapType=MKMapTypeHybrid;
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    if(self.title == @"Hangouts") {
-        span.latitudeDelta=0.1;
-        span.longitudeDelta=0.1;
-    } else {
-        span.latitudeDelta=5;
-        span.longitudeDelta=5;
-    }
+    span.latitudeDelta=0.1;
+    span.longitudeDelta=0.1;
     region.span=span;
     region.center=location;
     [mapView setRegion:region animated:TRUE];
@@ -261,8 +292,8 @@ NSMutableArray *results;
         mapView.mapType=MKMapTypeHybrid;
         MKCoordinateRegion region;
         MKCoordinateSpan span;
-        span.latitudeDelta=0.01;
-        span.longitudeDelta=0.01;
+        span.latitudeDelta=0.1;
+        span.longitudeDelta=0.1;
         region.span=span;
         region.center=point;
         [mapView setRegion:region animated:TRUE];

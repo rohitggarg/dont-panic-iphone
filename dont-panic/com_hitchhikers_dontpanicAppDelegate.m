@@ -7,7 +7,7 @@
 //
 
 #import "com_hitchhikers_dontpanicAppDelegate.h"
-
+#import "com_hitchhikers_dontpanic_SetLocationViewController.h"
 #import "com_hitchhikers_dontpanicViewController.h"
 #import "Place.h"
 #import "Company.h"
@@ -93,6 +93,21 @@
     }
 }
 
+- (void)setLocation {
+    com_hitchhikers_dontpanic_SetLocationViewController *view;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        view = [[com_hitchhikers_dontpanic_SetLocationViewController alloc] initWithNibName:@"SetLocationView_iPhone" bundle:nil];
+    } else {
+        view = [[com_hitchhikers_dontpanic_SetLocationViewController alloc] initWithNibName:@"SetLocationView_iPad" bundle:nil];
+    }
+    UINavigationController *root = self.viewController;
+    [view setController:[[root viewControllers] objectAtIndex:0]];
+    NSError *error;
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"City"];
+    [view setData:[_managedObjectContext executeFetchRequest:request error:&error]];
+    [self.viewController presentModalViewController:view animated:true];
+    
+}
 - (void)backupCurrentDB {
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LocalStorage_1.sqlite"];
     
@@ -139,7 +154,9 @@
     view.delegate = self;
     self.viewController = [[UINavigationController alloc] initWithRootViewController:view];
     view.navigationController = self.viewController;
-    view.title = @"Please select...";
+    [view.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Set Location" style:UIBarButtonSystemItemAction target:self action:@selector(setLocation)]];
+    view.title = @"Menu";
+
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

@@ -20,6 +20,7 @@ NSMutableDictionary *controllers;
 @synthesize currentLocation;
 @synthesize map;
 @synthesize delegate;
+@synthesize city;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -101,6 +102,7 @@ NSMutableDictionary *controllers;
         [controllers setValue:searchController forKey:key];
     }
     searchController.title = [keys objectAtIndex:indexPath.row];
+    searchController.city = city;
     [self.navigationController pushViewController:searchController animated:true];
     
 }

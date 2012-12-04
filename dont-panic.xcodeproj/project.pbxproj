@@ -82,6 +82,11 @@
 		F99935DB15EFC52200DFE193 /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */; };
 		F9B4998F160F66E300D1AF1B /* sync.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B4998E160F66E300D1AF1B /* sync.png */; };
 		F9B54480160985F500153C34 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B5447F160985F500153C34 /* AddressBook.framework */; };
+		F9C31181166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C3117F166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m */; };
+		F9C31182166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C3117F166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m */; };
+		F9C31183166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */; };
+		F9C31184166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */; };
+		F9C31186166DD15B008801EC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C31185166DD15B008801EC /* Default-568h@2x.png */; };
 		a45f437ad720079bb3b9b013 /* sync.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B4998E160F66E300D1AF1B /* sync.png */; };
 		a49c6471dba369638283caba /* MapView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067E15E5D76D0058A519 /* MapView_iPhone.xib */; };
 		a97b95ec3c2a59bc417afc0a /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F987592015E7ABC000965BAC /* SBJsonStreamWriter.m */; };
@@ -188,6 +193,10 @@
 		F99935DA15EFC52200DFE193 /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
 		F9B4998E160F66E300D1AF1B /* sync.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sync.png; sourceTree = "<group>"; };
 		F9B5447F160985F500153C34 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		F9C3117E166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_dontpanic_SetLocationViewController.h; sourceTree = "<group>"; };
+		F9C3117F166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_dontpanic_SetLocationViewController.m; sourceTree = "<group>"; };
+		F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetLocationView_iPhone.xib; sourceTree = "<group>"; };
+		F9C31185166DD15B008801EC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +236,7 @@
 		F96C6D9B15E47AF50009F6C1 = {
 			isa = PBXGroup;
 			children = (
+				F9C31185166DD15B008801EC /* Default-568h@2x.png */,
 				F96C6DD015E4872E0009F6C1 /* icon-114.png */,
 				F96C6DCE15E487280009F6C1 /* icon-57.png */,
 				F96C6DB015E47AF50009F6C1 /* dont-panic */,
@@ -325,6 +335,9 @@
 				F984067C15E5CFA60058A519 /* com_hitchhikers_SearchResultsController.m */,
 				F984067E15E5D76D0058A519 /* MapView_iPhone.xib */,
 				F982F29616002971007C603C /* DetailView_iPhone.xib */,
+				F9C3117E166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.h */,
+				F9C3117F166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m */,
+				F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */,
 			);
 			path = "dont-panic";
 			sourceTree = "<group>";
@@ -426,6 +439,7 @@
 				10382a1aa025fcd388ad319e /* Panic.png in Resources */,
 				fe8adb25b8b336df3845b40f /* DetailView_iPhone.xib in Resources */,
 				a45f437ad720079bb3b9b013 /* sync.png in Resources */,
+				F9C31184166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +465,8 @@
 				F936E7B515E72602004D423E /* Panic.png in Resources */,
 				F982F29716002971007C603C /* DetailView_iPhone.xib in Resources */,
 				F9B4998F160F66E300D1AF1B /* sync.png in Resources */,
+				F9C31183166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */,
+				F9C31186166DD15B008801EC /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +501,7 @@
 				aecdba5731ca3142349cc969 /* City.m in Sources */,
 				f88afb9a0876aea1bfb8373b /* Admin.m in Sources */,
 				55c941824918e02c0276bf74 /* PlaceType.m in Sources */,
+				F9C31182166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +533,7 @@
 				F96630F715F06A6100332799 /* City.m in Sources */,
 				F96630FA15F06A6100332799 /* Admin.m in Sources */,
 				F96630FD15F06A6100332799 /* PlaceType.m in Sources */,
+				F9C31181166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

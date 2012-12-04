@@ -27,6 +27,7 @@
 @property (nonatomic, strong) Country *country;
 @property (nonatomic, strong) Place *baseLocation;
 @property (nonatomic, strong) Admin *admin;
+@property (nonatomic, strong) City *city;
 
 -(void)initMap:(MKMapView *) map;
 @end
