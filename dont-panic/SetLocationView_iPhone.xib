@@ -42,7 +42,7 @@
 						<string key="NSFrame">{{0, 53}, {320, 216}}</string>
 						<reference key="NSSuperview" ref="14411876"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="905417790"/>
+						<reference key="NSNextKeyView" ref="390987147"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -51,16 +51,16 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIShowsSelectionIndicator">YES</bool>
 					</object>
-					<object class="IBUIButton" id="905417790">
+					<object class="IBUIButton" id="390987147">
 						<reference key="NSNextResponder" ref="14411876"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{45, 304}, {231, 53}}</string>
+						<string key="NSFrame">{{45, 313}, {231, 53}}</string>
 						<reference key="NSSuperview" ref="14411876"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MSAxIDEAA</bytes>
+						<object class="NSColor" key="IBUIBackgroundColor" id="318056548">
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC45NjA3ODQzNzU3IDAuOTI5NDExODI4NSAwLjg2Mjc0NTE2NTgAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -100,10 +100,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="261491645"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">2</int>
-					<bytes key="NSRGB">MC45NjA3ODQzNzU3IDAuOTI5NDExODI4NSAwLjg2Mjc0NTE2NTgAA</bytes>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="318056548"/>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
 					<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
 					<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
@@ -153,7 +150,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">cancelled:</string>
-						<reference key="source" ref="905417790"/>
+						<reference key="source" ref="390987147"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -184,7 +181,7 @@
 						<reference key="object" ref="14411876"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="261491645"/>
-							<reference ref="905417790"/>
+							<reference ref="390987147"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -196,7 +193,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">44</int>
-						<reference key="object" ref="905417790"/>
+						<reference key="object" ref="390987147"/>
 						<reference key="parent" ref="14411876"/>
 					</object>
 				</array>
