@@ -55,4 +55,7 @@
     [self dismissModalViewControllerAnimated:true];
 }
 
+- (IBAction)cancelled:(id)sender {
+    [self dismissModalViewControllerAnimated:true];
+}
 @end

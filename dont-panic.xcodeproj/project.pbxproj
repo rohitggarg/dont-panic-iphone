@@ -396,7 +396,7 @@
 		F96C6D9D15E47AF50009F6C1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = F96C6DA015E47AF50009F6C1 /* Build configuration list for PBXProject "dont-panic" */;
 			compatibilityVersion = "Xcode 3.2";

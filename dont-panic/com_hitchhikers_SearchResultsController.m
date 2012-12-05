@@ -206,7 +206,7 @@ NSMutableArray *results;
     }
 }
 
--(void) initializeSubController:(com_hitchhikers_SearchResultsController *)controller obj:(NSObject*)obj {
+-(void) initializeSubController:(com_hitchhikers_SearchResultsController *)controller obj:(id)obj {
     if([self.title isEqualToString:@"Countries"]) {
         controller.title=@"Office Locations";
         controller.country = obj;
@@ -278,12 +278,13 @@ NSMutableArray *results;
     [mapView removeAnnotations:[mapView annotations]];
     if(self.baseLocation != nil) {
         CLLocationDegrees latitude = [[baseLocation latitude] doubleValue];
-        NSMutableDictionary *completeAddress = [[NSMutableDictionary alloc] initWithCapacity:5];
-        [completeAddress setValue:[NSString stringWithFormat:@"%@,",baseLocation.name] forKey:kABPersonAddressStreetKey];
-        [completeAddress setValue:baseLocation.address forKey:@"address1"];
-        [completeAddress setValue:baseLocation.contactNo forKey:@"address2"];
-        [completeAddress setValue:baseLocation.city.name forKey:@"city"];
-        [completeAddress setValue:baseLocation.city.country.name forKey:kABPersonAddressCountryKey];
+        NSDictionary *completeAddress = @{
+        (NSString *) kABPersonAddressStreetKey : [NSString stringWithFormat:@"%@,",baseLocation.name],
+        @"address1" : baseLocation.address,
+        @"address2" : baseLocation.contactNo,
+        @"city" : baseLocation.city.name,
+        (NSString *) kABPersonAddressCountryKey : baseLocation.city.country.name
+        };
         CLLocationDegrees longitude = [[baseLocation longitude] doubleValue];
         CLLocationCoordinate2D point = CLLocationCoordinate2DMake(latitude, longitude);
         MKPlacemark *annotation = [[MKPlacemark alloc] initWithCoordinate:point addressDictionary:completeAddress];
@@ -329,11 +330,14 @@ NSMutableArray *results;
         pinView.pinColor = MKPinAnnotationColorPurple;
         pinView.canShowCallout = YES;
         pinView.animatesDrop = YES;
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10,10,170,80)];
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10,10,210,100)];
         textView.textColor = [UIColor whiteColor];
         textView.backgroundColor = [UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0.5];
         [textView setText:[NSString stringWithFormat:@"%@\n%@\n Tel : %@",[placeMark.addressDictionary objectForKey:@"address1"],[placeMark.addressDictionary objectForKey:@"city"], [placeMark.addressDictionary objectForKey:@"address2"]]];
         [pinView insertSubview:textView atIndex:1];
+        CGRect frame = textView.frame;
+        frame.size.height = textView.contentSize.height;
+        textView.frame = frame;
         return pinView;
     }
     else {

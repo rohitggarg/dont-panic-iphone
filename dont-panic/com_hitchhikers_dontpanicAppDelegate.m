@@ -31,7 +31,7 @@
     for(NSDictionary *companies in [values valueForKey:@"companies"]) {
         Company *company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:context];
         company.name = [companies valueForKey:@"name"];
-        [companyDict setValue:company forKey:[NSString stringWithFormat:@"%d",[companies valueForKey:@"id"]]];
+        [companyDict setValue:company forKey:[NSString stringWithFormat:@"%d",(int)[companies valueForKey:@"id"]]];
     }
     NSMutableDictionary *cityDict = [[NSMutableDictionary alloc] initWithCapacity:10];
     for(NSDictionary *countries in [values valueForKey:@"countries"]) {
@@ -42,11 +42,11 @@
                 City *city = [NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:context];
                 city.name = [cities valueForKey:@"name"];
                 city.country = country;
-                [cityDict setValue:city forKey:[NSString stringWithFormat:@"%d",[cities valueForKey:@"id"]]];
+                [cityDict setValue:city forKey:[NSString stringWithFormat:@"%d",(int)[cities valueForKey:@"id"]]];
                 for(NSDictionary *offices in [values valueForKey:@"offices"]){
                     if([[offices valueForKey:@"city_id"] isEqual:[cities valueForKey:@"id"]]) {
                         Office *office = [NSEntityDescription insertNewObjectForEntityForName:@"Office" inManagedObjectContext:context];
-                        office.company = [companyDict valueForKey:[NSString stringWithFormat:@"%d",[offices valueForKey:@"company_id"]]];
+                        office.company = [companyDict valueForKey:[NSString stringWithFormat:@"%d",(int)[offices valueForKey:@"company_id"]]];
                         office.place = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
                         if([offices valueForKey:@"latitude"] != NSNull.null)
                             office.place.latitude = [offices valueForKey:@"latitude"];
@@ -57,7 +57,7 @@
                         office.place.contactNo = [offices valueForKey:@"phone_numbers"];
                         office.place.desc = [offices valueForKey:@"email"];
                         office.place.type = officeType;
-                        office.place.city = [cityDict valueForKey:[NSString stringWithFormat:@"%d",[offices valueForKey:@"city_id"]]];
+                        office.place.city = [cityDict valueForKey:[NSString stringWithFormat:@"%d",(int)[offices valueForKey:@"city_id"]]];
                         for(NSDictionary *admins in [values valueForKey:@"administrators"]) {
                             if([[admins valueForKey:@"office_id"] isEqual:[offices valueForKey:@"id"]]) {
                                 Admin *admin = [NSEntityDescription insertNewObjectForEntityForName:@"Admin" inManagedObjectContext:context];
@@ -87,7 +87,7 @@
                 place.contactNo = [places valueForKey:@"phone_numbers"];
                 place.desc = [places valueForKey:@"description"];
                 place.type = placeType;
-                place.city = [cityDict valueForKey:[NSString stringWithFormat:@"%d",[places valueForKey:@"city_id"]]];
+                place.city = [cityDict valueForKey:[NSString stringWithFormat:@"%d",(int)[places valueForKey:@"city_id"]]];
             }
         }
     }
@@ -156,7 +156,7 @@
     view.navigationController = self.viewController;
     [view.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Set Location" style:UIBarButtonSystemItemAction target:self action:@selector(setLocation)]];
     view.title = @"Menu";
-
+    [self.viewController.navigationBar setTintColor:[UIColor brownColor]];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

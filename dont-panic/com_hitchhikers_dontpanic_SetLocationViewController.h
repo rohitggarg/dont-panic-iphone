@@ -12,5 +12,6 @@
 @interface com_hitchhikers_dontpanic_SetLocationViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (nonatomic,retain) NSArray *data;
+- (IBAction)cancelled:(id)sender;
 @property (nonatomic,retain) com_hitchhikers_dontpanicViewController *controller;
 @end

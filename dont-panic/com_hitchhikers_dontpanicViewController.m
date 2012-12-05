@@ -176,6 +176,8 @@ NSMutableDictionary *controllers;
 
 -(IBAction) syncButtonPushed:(id)sender
 {
+    city = nil;
+    [[[self navigationItem] leftBarButtonItem]setTitle:@"Set Location"];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
                                                     message:[NSString stringWithFormat:@"about to send request"]
                                                    delegate:nil
