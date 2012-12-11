@@ -17,7 +17,7 @@
 - (IBAction)skipPressed:(id)sender;
 - (IBAction)goPressed:(id)sender;
 
-- (IBAction)syncStarted:(id)sender;
+- (void) syncStarted:(id)sender;
 @property (strong, nonatomic) com_hitchhikers_dontpanicAppDelegate *delegate;
 @property (strong, nonatomic) com_hitchhikers_dontpanicViewController *mainController;
 @end

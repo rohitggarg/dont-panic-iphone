@@ -12,6 +12,8 @@
 
 @end
 
+UIAlertView *mainAlert;
+
 @implementation com_hitchhikers_dontpanic_LoginViewController
 
 @synthesize delegate;
@@ -41,13 +43,7 @@
 - (void) refreshDatabase:(NSString *) username withPassword:(NSString *)password
 {
     NSString *url = @"http://dont-panic.herokuapp.com/data.json";
- 
-    UIAlertView *mainAlert = [[UIAlertView alloc] initWithTitle:@"Info"
-                                           message:[NSString stringWithFormat:@"about to send request"]
-                                          delegate:nil
-                                 cancelButtonTitle: nil
-                                 otherButtonTitles: nil];
-    [mainAlert show];
+
     if(username != nil) {
         url = [url stringByAppendingFormat:@"?username=%@&password=%@",username,password];
     }
@@ -99,15 +95,22 @@
     [super viewDidUnload];
 }
 - (IBAction)skipPressed:(id)sender {
+    [self syncStarted:sender];
     [self refreshDatabase:nil withPassword:nil];
 }
 
 - (IBAction)goPressed:(id)sender {
+    [self syncStarted:sender];
     [self refreshDatabase:[self.username text] withPassword:[self.password text]];
 }
 
-- (IBAction)syncStarted:(id)sender {
+- (void) syncStarted:(id)sender {
 
-    
+    mainAlert = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                        message:[NSString stringWithFormat:@"about to send request"]
+                                                       delegate:nil
+                                              cancelButtonTitle: nil
+                                              otherButtonTitles: nil];
+    [mainAlert show];
 }
 @end
