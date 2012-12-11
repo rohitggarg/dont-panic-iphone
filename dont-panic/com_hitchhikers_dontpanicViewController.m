@@ -178,53 +178,19 @@ NSMutableDictionary *controllers;
 {
     city = nil;
     [[[self navigationItem] leftBarButtonItem]setTitle:@"Set Location"];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
-                                                    message:[NSString stringWithFormat:@"about to send request"]
-                                                   delegate:nil
-                                          cancelButtonTitle: nil
-                                          otherButtonTitles: nil];
-    [alert show];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://dont-panic.herokuapp.com/data.json"]];
-    [request setHTTPMethod:@"GET"];
-    NSURLResponse *response;
-    NSError *err;
-    [alert dismissWithClickedButtonIndex:-1 animated:false];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-    NSString *data = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
-    if (err != NULL) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-														message:[NSString stringWithFormat:@"%@", [err localizedDescription]]
-													   delegate:nil
-											  cancelButtonTitle:@"OK" 
-											  otherButtonTitles: nil];
-        [alert show];
-        
+    controllers = [[NSMutableDictionary alloc] init];
+    com_hitchhikers_dontpanic_LoginViewController *view;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        view = [[com_hitchhikers_dontpanic_LoginViewController alloc] initWithNibName:@"LoginView_iPhone" bundle:nil];
     } else {
-        NSDictionary *values = [data JSONValue];
-        [delegate backupCurrentDB];
-        [delegate syncToDb:[delegate managedObjectContext] values:values];
-        NSError *error;
-        if(![[delegate managedObjectContext] save:&error]) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                            message:[NSString stringWithFormat:@"Couldn't sync because %@", [error localizedDescription]]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK" 
-                                                  otherButtonTitles: nil];
-            [alert show];
-            [delegate revertDB];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
-														message:@"Sync successful!"
-													   delegate:nil
-											  cancelButtonTitle:@"OK" 
-											  otherButtonTitles: nil];
-            [alert show];
-            [delegate makeCurrentDB:[delegate managedObjectContext]];
-        }
-        controllers = [[NSMutableDictionary alloc] init];
-        managedObjectContext = [delegate managedObjectContext];
+        view = [[com_hitchhikers_dontpanic_LoginViewController alloc] initWithNibName:@"LoginView_iPad" bundle:nil];
     }
+    view.delegate = delegate;
+    view.mainController = self;
+    [self presentModalViewController:view animated:true];
+    
 }
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     self.currentLocation = newLocation;
 }

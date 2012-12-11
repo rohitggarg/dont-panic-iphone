@@ -87,6 +87,10 @@
 		F9C31183166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */; };
 		F9C31184166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */; };
 		F9C31186166DD15B008801EC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C31185166DD15B008801EC /* Default-568h@2x.png */; };
+		F9E0691216774C820041B8C6 /* LoginView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E0691116774C820041B8C6 /* LoginView_iPhone.xib */; };
+		F9E0691316774C820041B8C6 /* LoginView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E0691116774C820041B8C6 /* LoginView_iPhone.xib */; };
+		F9E0691716774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E0691616774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m */; };
+		F9E0691816774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E0691616774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m */; };
 		a45f437ad720079bb3b9b013 /* sync.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B4998E160F66E300D1AF1B /* sync.png */; };
 		a49c6471dba369638283caba /* MapView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984067E15E5D76D0058A519 /* MapView_iPhone.xib */; };
 		a97b95ec3c2a59bc417afc0a /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F987592015E7ABC000965BAC /* SBJsonStreamWriter.m */; };
@@ -197,6 +201,9 @@
 		F9C3117F166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_dontpanic_SetLocationViewController.m; sourceTree = "<group>"; };
 		F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetLocationView_iPhone.xib; sourceTree = "<group>"; };
 		F9C31185166DD15B008801EC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F9E0691116774C820041B8C6 /* LoginView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView_iPhone.xib; sourceTree = "<group>"; };
+		F9E0691516774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_dontpanic_LoginViewController.h; sourceTree = "<group>"; };
+		F9E0691616774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_hitchhikers_dontpanic_LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +345,9 @@
 				F9C3117E166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.h */,
 				F9C3117F166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m */,
 				F9C31180166CC75F008801EC /* SetLocationView_iPhone.xib */,
+				F9E0691116774C820041B8C6 /* LoginView_iPhone.xib */,
+				F9E0691516774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.h */,
+				F9E0691616774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m */,
 			);
 			path = "dont-panic";
 			sourceTree = "<group>";
@@ -440,6 +450,7 @@
 				fe8adb25b8b336df3845b40f /* DetailView_iPhone.xib in Resources */,
 				a45f437ad720079bb3b9b013 /* sync.png in Resources */,
 				F9C31184166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */,
+				F9E0691316774C820041B8C6 /* LoginView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +478,7 @@
 				F9B4998F160F66E300D1AF1B /* sync.png in Resources */,
 				F9C31183166CC75F008801EC /* SetLocationView_iPhone.xib in Resources */,
 				F9C31186166DD15B008801EC /* Default-568h@2x.png in Resources */,
+				F9E0691216774C820041B8C6 /* LoginView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +514,7 @@
 				f88afb9a0876aea1bfb8373b /* Admin.m in Sources */,
 				55c941824918e02c0276bf74 /* PlaceType.m in Sources */,
 				F9C31182166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m in Sources */,
+				F9E0691816774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +547,7 @@
 				F96630FA15F06A6100332799 /* Admin.m in Sources */,
 				F96630FD15F06A6100332799 /* PlaceType.m in Sources */,
 				F9C31181166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m in Sources */,
+				F9E0691716774EBC0041B8C6 /* com_hitchhikers_dontpanic_LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

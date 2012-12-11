@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "com_hitchhikers_dontpanicAppDelegate.h"
 #import "City.h"
+#import "com_hitchhikers_dontpanic_LoginViewController.h"
 
 @interface com_hitchhikers_dontpanicViewController : UITableViewController <CLLocationManagerDelegate>
 
@@ -22,4 +23,5 @@
 @property (nonatomic,strong) City *city;
 -(IBAction) panicButtonPushed:(id)sender;
 -(IBAction) syncButtonPushed:(id)sender;
+
 @end
