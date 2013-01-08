@@ -135,7 +135,10 @@ NSMutableArray *results;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    NSString *os = @"iPhone";
+    NSString *os = @"iPad";
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        os = @"iPhone";
+    }
     self = [super initWithNibName:[NSString localizedStringWithFormat:@"%@View_%@", nibNameOrNil, os] bundle:nibBundleOrNil];
     self.viewType = nibNameOrNil;
     self.map.delegate = self;

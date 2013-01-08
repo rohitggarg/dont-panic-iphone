@@ -13,5 +13,6 @@
 
 @property (nonatomic,retain) NSArray *data;
 - (IBAction)cancelled:(id)sender;
+- (IBAction)cleared:(id)sender;
 @property (nonatomic,retain) com_hitchhikers_dontpanicViewController *controller;
 @end

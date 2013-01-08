@@ -55,8 +55,10 @@ UIAlertView *mainAlert;
     NSString *data = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
     [mainAlert dismissWithClickedButtonIndex:-1 animated:false];
     if (err != NULL) {
+        if(data == nil)
+            data = [err localizedDescription];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-														message:[NSString stringWithFormat:@"%@", [err localizedDescription]]
+														message:data
 													   delegate:nil
 											  cancelButtonTitle:@"OK"
 											  otherButtonTitles: nil];
@@ -85,8 +87,8 @@ UIAlertView *mainAlert;
             [delegate makeCurrentDB:[delegate managedObjectContext]];
         }
         mainController.managedObjectContext = [delegate managedObjectContext];
+        [self dismissModalViewControllerAnimated:true];
     }
-    [self dismissModalViewControllerAnimated:true];
 }
 
 - (void)viewDidUnload {

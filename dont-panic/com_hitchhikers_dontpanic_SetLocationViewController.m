@@ -58,4 +58,11 @@
 - (IBAction)cancelled:(id)sender {
     [self dismissModalViewControllerAnimated:true];
 }
+
+- (IBAction)cleared:(id)sender
+{
+    controller.city = nil;
+    [[[controller navigationItem] leftBarButtonItem] setTitle:@"Set Location"];
+    [self dismissModalViewControllerAnimated:true];
+}
 @end
