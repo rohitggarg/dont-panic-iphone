@@ -80,6 +80,8 @@
 		F988E96515E6971800C8D8B7 /* Transportation.png in Resources */ = {isa = PBXBuildFile; fileRef = F988E96315E6971800C8D8B7 /* Transportation.png */; };
 		F99935C315EFAF6800DFE193 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99935C215EFAF6800DFE193 /* CoreData.framework */; };
 		F99935DB15EFC52200DFE193 /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F99935D915EFC52200DFE193 /* LocalStorage.xcdatamodeld */; };
+		F9A4EFEC16EB8F2C0091B2A4 /* DontPanic-icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F9A4EFEB16EB8F2C0091B2A4 /* DontPanic-icon-72.png */; };
+		F9A4EFEE16EB8F5F0091B2A4 /* DontPanic-icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = F9A4EFED16EB8F5F0091B2A4 /* DontPanic-icon-144.png */; };
 		F9B4998F160F66E300D1AF1B /* sync.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B4998E160F66E300D1AF1B /* sync.png */; };
 		F9B54480160985F500153C34 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B5447F160985F500153C34 /* AddressBook.framework */; };
 		F9C31181166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C3117F166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.m */; };
@@ -205,6 +207,8 @@
 		F988E96315E6971800C8D8B7 /* Transportation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transportation.png; sourceTree = "<group>"; };
 		F99935C215EFAF6800DFE193 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F99935DA15EFC52200DFE193 /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
+		F9A4EFEB16EB8F2C0091B2A4 /* DontPanic-icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DontPanic-icon-72.png"; sourceTree = "<group>"; };
+		F9A4EFED16EB8F5F0091B2A4 /* DontPanic-icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DontPanic-icon-144.png"; sourceTree = "<group>"; };
 		F9B4998E160F66E300D1AF1B /* sync.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sync.png; sourceTree = "<group>"; };
 		F9B5447F160985F500153C34 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		F9C3117E166CC75F008801EC /* com_hitchhikers_dontpanic_SetLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_hitchhikers_dontpanic_SetLocationViewController.h; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 		F96C6D9B15E47AF50009F6C1 = {
 			isa = PBXGroup;
 			children = (
+				F9A4EFED16EB8F5F0091B2A4 /* DontPanic-icon-144.png */,
+				F9A4EFEB16EB8F2C0091B2A4 /* DontPanic-icon-72.png */,
 				F9C31185166DD15B008801EC /* Default-568h@2x.png */,
 				F96C6DD015E4872E0009F6C1 /* icon-114.png */,
 				F96C6DCE15E487280009F6C1 /* icon-57.png */,
@@ -509,6 +515,8 @@
 				F9F1C400169C26680025ECF7 /* DetailView_iPad.xib in Resources */,
 				F9F1C403169C276B0025ECF7 /* SetLocationView_iPad.xib in Resources */,
 				F9F1C406169C277D0025ECF7 /* LoginView_iPad.xib in Resources */,
+				F9A4EFEC16EB8F2C0091B2A4 /* DontPanic-icon-72.png in Resources */,
+				F9A4EFEE16EB8F5F0091B2A4 /* DontPanic-icon-144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +646,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rohit Garg";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -653,6 +662,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "A884C9CC-DC4A-4618-9875-40B6D894F5FB";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -664,6 +674,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rohit Garg";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -673,6 +684,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "A884C9CC-DC4A-4618-9875-40B6D894F5FB";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -685,6 +697,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dont-panic/dont-panic-Prefix.pch";
 				INFOPLIST_FILE = "dont-panic/dont-panic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -696,7 +709,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dont-panic/dont-panic-Prefix.pch";
 				INFOPLIST_FILE = "dont-panic/dont-panic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

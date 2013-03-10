@@ -12,6 +12,8 @@
 	<array>
 		<string>icon-57.png</string>
 		<string>icon-114.png</string>
+		<string>DontPanic-icon-72.png</string>
+		<string>DontPanic-icon-144.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -21,13 +23,13 @@
 			<array>
 				<string>icon-57.png</string>
 				<string>icon-114.png</string>
+				<string>DontPanic-icon-72.png</string>
+				<string>DontPanic-icon-144.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>ThoughtWorks.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -49,15 +51,12 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>
